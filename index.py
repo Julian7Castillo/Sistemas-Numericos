@@ -1,25 +1,33 @@
-#importamos librerias
-from tkinter import *
-import tkinter as tk
+#importamos las librerias necesarias 
+from tkinter import Tk
+from time import time
 
-#importamos funciones del menu
-from menus import *
-from areaTabajo import *
-from eje import *
+#contador de ejecucion del programa
+tiempo_inicial=time()
 
-def fInicio():
+#creacion de la funcion principal main
+def main():
     """Funcion del inicio de la aplicacion con al bienvenida y el menu principal establecido """
     #creacion de ventana de nivel superior root (vetana principal)
     root = Tk()
     root.title("Sistemas Numericos")
     root.geometry("1060x550")
-    icon = PhotoImage(file="D://User//Documents//PROYECTOS//Proyectos_Python//Analisis_Numericos//Vista//Image//logo.png")
-    root.iconphoto(True, icon)
+    #icon = PhotoImage(file="D://User//Documents//PROYECTOS//Proyectos_Python//Analisis_Numericos//Vista//Image//logo.png")
+    #root.iconphoto(True, icon)
     root.resizable(width= 0, height=0)
-
-    #creacion del marco (frame) en la ventana root con un tañaño de 10
-    menuop(root)
-    Inicio(root)
 
     #loop de inicio ejecuta la ventana
     root.mainloop()
+    
+if __name__ == "__main__":
+    main()
+
+#finalizacion de la ejecucion
+tiempo_final=time()
+
+#calculo de tiempo de ejecucion
+tiempo_ejecucion = tiempo_final - tiempo_inicial
+
+#mostrar tiempo de ejececion 
+print("El tiempo de ejecucion segundos fue: ",tiempo_ejecucion)#segundos
+print("El tiempo de ejecucion milisegundos fue: ",tiempo_ejecucion * 1000)#milisegundos
