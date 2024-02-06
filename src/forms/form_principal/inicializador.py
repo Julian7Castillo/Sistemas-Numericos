@@ -56,11 +56,11 @@ class FormPrincipal(tk.Tk):
         
         #informacion de los botones
         button_info = [
-            (self.bordeCal, " 1) Calculadora ",self.calculadora, self.limpiarPanel),
+            (self.bordeCal, " 1) Calculadora ",self.calculadora, self.cal),
             (self.bordefig, " 2) Figuras \nGeometricas ", self.figuras, self.limpiarPanel),
             (self.bordered, " 3) Redendeo \ny Truncamiento ", self.redondeo, self.limpiarPanel),
             (self.bordeerr, " 4) Error Absoluto \ny Relativo ", self.error, self.limpiarPanel),
-            (self.bordefun, " 5) Funciones ", self.funciones, self.limpiarPanel),
+            (self.bordefun, " 5) Funciones ", self.funciones, self.cambiarMenu),
             (self.bordesem, " 6) Semilla ",self.semilla, self.limpiarPanel),
             (self.bordecon, " 7) Converción \n Numerica ", self.convercion, self.limpiarPanel)
         ]
@@ -68,7 +68,45 @@ class FormPrincipal(tk.Tk):
         #Configuracion de los botones
         for borde, text, boton, comando in button_info:
             self.config_boton_menu(borde, boton, text, font_awesome, ancho_menu, alto_menu, comando)
-            
+    
+    def menufun(self):
+        """Creacióm de menu latertal por mediuo de un cilo para mejorar la eficiencia del codigo"""
+        
+        #datos del menu lateral
+        ancho_menu = 16
+        alto_menu = 2
+        font_awesome = font.Font = ("Arial", 15, "bold")
+        
+        #Creacion de los bordes para lso botones
+        self.bordepoli = tk.LabelFrame(self.barra_menu)
+        self.borderaci = tk.LabelFrame(self.barra_menu)
+        self.borderadi = tk.LabelFrame(self.barra_menu)
+        self.bordeexpo = tk.LabelFrame(self.barra_menu)
+        self.bordeloga = tk.LabelFrame(self.barra_menu)
+        self.bordeVol = tk.LabelFrame(self.barra_menu)
+        
+        #Creacion de los botones
+        self.polinomicas = tk.Button(self.bordepoli)
+        self.racionales = tk.Button(self.borderaci)
+        self.radicales = tk.Button(self.borderadi)
+        self.exponenciales = tk.Button(self.bordeexpo)
+        self.logaritmica = tk.Button(self.bordeloga)
+        self.volver = tk.Button(self.bordeVol)
+        
+        #informacion de los botones
+        button_info = [
+            (self.bordepoli, " 1) Funciones \nPolinomicas",self.polinomicas, self.limpiarPanel),
+            (self.borderaci, " 2) Funciones \nRacionales", self.racionales, self.limpiarPanel),
+            (self.borderadi, " 3) Funciones \nRadicales", self.radicales, self.limpiarPanel),
+            (self.bordeexpo, " 4) Funciones\n Exponenciales", self.exponenciales, self.limpiarPanel),
+            (self.bordeloga, " 5) Funciones\n Logaritmicas", self.logaritmica, self.limpiarPanel),
+            (self.bordeVol, " 6) Volver",self.volver, self.volvermenup)
+        ]
+        
+        #Configuracion de los botones
+        for borde, text, boton, comando in button_info:
+            self.config_boton_menu(borde, boton, text, font_awesome, ancho_menu, alto_menu, comando)
+    
     def config_boton_menu(self, borde, boton, text, font_awesome, ancho_menu, alto_menu, comando):
         """Configuracion de los bordes y los botones del menu lateral"""
         borde.config(bd = 6, bg = "grey", padx=10, pady=17)
@@ -81,6 +119,18 @@ class FormPrincipal(tk.Tk):
         """Funcion para Destrio todos los hijos de panel gracias al winfo _children que se le indique limpiando el panel que baya encontrando por eso se encientra en un bucle parea que se pueda hubicar otro panel diferente """
         for widget in panel.winfo_children():
             widget.destroy()
-            
+    
+    def cambiarMenu(self):
+        self.limpiarPanel(self.barra_menu)
+        self.menufun()
+        
+    def volvermenup(self):
+        self.limpiarPanel(self.barra_menu)
+        self.menuop()
+
+    def cal(self):
+        pass
+
+
 # if __name__ == "__main__":
 #     main()
