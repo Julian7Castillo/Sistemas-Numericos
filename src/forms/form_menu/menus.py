@@ -3,10 +3,10 @@ from tkinter import *
 import tkinter as tk
 
 #importamos las demas funiones de los otros archvos
-from areaTrabajo import *
-from Funciones import *
+#from areaTrabajo import *
+#from Funciones import *
 
-def menuop( root):
+def menuop(root):
     """Funcion de la interfaz del area de menu principal de los sistemas numericos"""
     #creacion del frame para el menu
     fmenu = tk.Frame(root, height=625, width=300, bg='grey', padx= 10, pady=10 )
@@ -15,12 +15,12 @@ def menuop( root):
     #Creacion de los botones del menu
     borderlineal = LabelFrame(fmenu, bd = 6, bg = "grey", padx= 10, pady=17)
     borderlineal.pack()#.grid(column=1, row=1)
-    botonlineal = tk.Button(borderlineal, text = "1) Redendeo \n y truncamiento", bg="light grey",width = 14, height= 2, font = ("Arial", 20, "bold"), cursor = "circle", command =  lambda:[redondeoTruncamiento(root)])
+    botonlineal = tk.Button(borderlineal, text = "1) Redendeo \n y truncamiento", bg="light grey",width = 14, height= 2, font = ("Arial", 20, "bold"), cursor = "circle")#, command =  lambda:[redondeoTruncamiento(root)])
     botonlineal.pack()
 
     borderlineal = LabelFrame(fmenu, bd = 6, bg = "grey", padx= 10, pady=17)
     borderlineal.pack()#.grid(column=1, row=2)
-    botonlineal = tk.Button(borderlineal, text = "2) Error Absoluto\n y Relativo", bg="light grey", width = 14, height= 2, font = ("Arial", 20, "bold"), cursor = "circle", command =  lambda:[errorabcoluto(root)] )
+    botonlineal = tk.Button(borderlineal, text = "2) Error Absoluto\n y Relativo", bg="light grey", width = 14, height= 2, font = ("Arial", 20, "bold"), cursor = "circle")#, command =  lambda:[errorabcoluto(root)] )
     botonlineal.pack()
 
     borderlineal = LabelFrame(fmenu, bd = 6, bg = "grey", padx= 10, pady=16)
@@ -30,7 +30,7 @@ def menuop( root):
 
     borderlineal = LabelFrame(fmenu, bd = 6, bg = "grey", padx= 10, pady=16)
     borderlineal.pack()#.grid(column=1, row=4)
-    botonlineal = tk.Button(borderlineal, text = "4) Semilla ", bg="light grey", width = 14, height= 2, font = ("Arial", 20, "bold"), cursor = "circle", command =  lambda:[semilla(root)] )
+    botonlineal = tk.Button(borderlineal, text = "4) Semilla ", bg="light grey", width = 14, height= 2, font = ("Arial", 20, "bold"), cursor = "circle")#, command =  lambda:[semilla(root)] )
     botonlineal.pack()
 
 def menufun(root):
@@ -42,27 +42,27 @@ def menufun(root):
     #creacion de los botones
     borderlineal = LabelFrame(fmenufun, bd = 6, bg = "grey", padx= 10, pady=8)
     borderlineal.grid(column=1, row=1)
-    botonlineal = tk.Button(borderlineal, text = "1) Funciones \nPolinomicas", bg="light grey", width = 20, height= 2, font = ("Arial", 15, "bold"), cursor = "circle", command =  lambda:[general(1,root)] )
+    botonlineal = tk.Button(borderlineal, text = "1) Funciones \nPolinomicas", bg="light grey", width = 20, height= 2, font = ("Arial", 15, "bold"), cursor = "circle")#, command =  lambda:[general(1,root)] )
     botonlineal.pack()
 
     borderlineal = LabelFrame(fmenufun, bd = 6, bg = "grey", padx= 10, pady=8)
     borderlineal.grid(column=1, row=2)
-    botonlineal = tk.Button(borderlineal, text = "2) Funciones \nRacionales", bg="light grey", width = 20, height= 2, font = ("Arial", 15, "bold"), cursor = "circle", command =  lambda:[general(2,root)])
+    botonlineal = tk.Button(borderlineal, text = "2) Funciones \nRacionales", bg="light grey", width = 20, height= 2, font = ("Arial", 15, "bold"), cursor = "circle")#, command =  lambda:[general(2,root)])
     botonlineal.pack()
 
     borderlineal = LabelFrame(fmenufun, bd = 6, bg = "grey", padx= 10, pady=8)
     borderlineal.grid(column=1, row=3)
-    botonlineal = tk.Button(borderlineal, text = "3) Funciones \nRadicales", bg="light grey", width = 20, height= 2, font = ("Arial", 15, "bold"), cursor = "circle", command =  lambda:[general(3,root)] )
+    botonlineal = tk.Button(borderlineal, text = "3) Funciones \nRadicales", bg="light grey", width = 20, height= 2, font = ("Arial", 15, "bold"), cursor = "circle")#, command =  lambda:[general(3,root)] )
     botonlineal.pack()
 
     borderlineal = LabelFrame(fmenufun, bd = 6, bg = "grey", padx= 10, pady=8)
     borderlineal.grid(column=1, row=4)
-    botonlineal = tk.Button(borderlineal, text = "4) Funciones\n Exponenciales", bg="light grey", width = 20, height= 2, font = ("Arial", 15, "bold"), cursor = "circle", command =  lambda:[general(4,root)])
+    botonlineal = tk.Button(borderlineal, text = "4) Funciones\n Exponenciales", bg="light grey", width = 20, height= 2, font = ("Arial", 15, "bold"), cursor = "circle")#, command =  lambda:[general(4,root)])
     botonlineal.pack()
 
     borderlineal = LabelFrame(fmenufun, bd = 6, bg = "grey", padx= 10, pady=8)
     borderlineal.grid(column=1, row=5)
-    botonlineal = tk.Button(borderlineal, text = "5) Funciones\n Logaritmicas", bg="light grey", width = 20, height= 2, font = ("Arial", 15, "bold"), cursor = "circle", command =  lambda:[general(5,root)] )
+    botonlineal = tk.Button(borderlineal, text = "5) Funciones\n Logaritmicas", bg="light grey", width = 20, height= 2, font = ("Arial", 15, "bold"), cursor = "circle")#, command =  lambda:[general(5,root)] )
     botonlineal.pack()
 
     borderlineal = LabelFrame(fmenufun, bd = 6, bg = "grey", padx= 10, pady=6)

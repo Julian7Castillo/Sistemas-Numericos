@@ -20,7 +20,7 @@ def bienvenida(root):
     #l.place(x=170,y=170,width=350, height=350)
 
 def redondeoTruncamiento(root):
-    """Frame del area de trabajo de redodneo y truncamiento"""
+    """Frame del area de trabajo de redondeo y truncamiento"""
     #creacion del frame para ubicar los widgets 
     frmprt = Frame(root, height=625, width=760, bg='dark grey')
     frmprt.place(x=300, y=0)
@@ -31,7 +31,8 @@ def redondeoTruncamiento(root):
     x = Entry(frmprt, font= ("Arial", 20))
     x.place(x=350,y=120)#.grid(column=1, row=2)
     Label(frmprt, text="Seleccione los decimales: ", font= ("Arial", 30, "bold"), justify="center", bg="dark gray").place(x=30,y=180)
-    dec = ttk.Combobox(text="Decimales", values=[1,2,3,4,5], height=5, width=5, font= ("Arial",20, "bold")).place(x=830,y=190)
+    dec = ttk.Combobox(frmprt, text="Decimales", values=[1,2,3,4,5], height=5, width=5, font= ("Arial",20, "bold"))
+    dec.place(x=830,y=190)
 
     #botones de truncamienot y de redondeo 
     borderlineal = LabelFrame(frmprt, bd = 6, bg = "DodgerBlue2", padx= 10, pady=10)
