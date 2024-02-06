@@ -1,4 +1,5 @@
 #importamos las librerias necesarias 
+from tkinter import Scrollbar
 import tkinter as tk
 from tkinter import  font
 import src.util.utilidades as utl
@@ -22,14 +23,24 @@ class FormPrincipal(tk.Tk):
         
     def paneles(self):
         """Creación de los paneles que dividiran la interfaz """
-        self.barra_menu = tk.Frame(self, bg="grey", width=310)
+        
+        #Declaracion de la barra de scroll
+        scroll = Scrollbar(self.barra_menu, orient='vertical')
+        scroll.pack(side="right", fill="y")
+        
+        #Creacion de panel del menu
+        self.barra_menu = tk.Frame(self, bg="grey", width=310, yscrollcommand=scroll.set)
         self.barra_menu.pack(side=tk.LEFT, fill="both", expand=False)
         
+        #Configuracion del scroll en el opanel
+        scroll.config(command=self.barra_menu.winfo_y)
+        
+        #CReacion del panel del area de trabajo
         self.AreaTrabajo = tk.Frame(self, bg="light grey")
         self.AreaTrabajo.pack(side=tk.RIGHT, fill="both", expand=True)
 
     def menuop(self):
-        """Creacióm de menu latertal por mediuo de un cilo para mejorar la eficiencia del codigo"""
+        """Creación de menu lateral por medio de un ciclo para mejorar la eficiencia del código"""
         
         #datos del menu lateral
         ancho_menu = 16
