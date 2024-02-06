@@ -15,27 +15,42 @@ def menuop(root):
     #Creacion de los botones del menu
     borderlineal = LabelFrame(fmenu, bd = 6, bg = "grey", padx= 10, pady=17)
     borderlineal.pack()#.grid(column=1, row=1)
-    botonlineal = tk.Button(borderlineal, text = "1) Redendeo \n y truncamiento", bg="light grey",width = 14, height= 2, font = ("Arial", 20, "bold"), cursor = "circle")#, command =  lambda:[redondeoTruncamiento(root)])
+    botonlineal = tk.Button(borderlineal, text = "1) Calculadora", bg="light grey",width = 14, height= 2, font = ("Arial", 20, "bold"), cursor = "circle")#, command =  lambda:[redondeoTruncamiento(root)])
+    botonlineal.pack()
+    
+    borderlineal = LabelFrame(fmenu, bd = 6, bg = "grey", padx= 10, pady=17)
+    borderlineal.pack()#.grid(column=1, row=1)
+    botonlineal = tk.Button(borderlineal, text = "2) Figuras \n Geometricas", bg="light grey",width = 14, height= 2, font = ("Arial", 20, "bold"), cursor = "circle")#, command =  lambda:[redondeoTruncamiento(root)])
+    botonlineal.pack()
+    
+    borderlineal = LabelFrame(fmenu, bd = 6, bg = "grey", padx= 10, pady=17)
+    borderlineal.pack()#.grid(column=1, row=1)
+    botonlineal = tk.Button(borderlineal, text = "3) Redendeo \n y truncamiento", bg="light grey",width = 14, height= 2, font = ("Arial", 20, "bold"), cursor = "circle")#, command =  lambda:[redondeoTruncamiento(root)])
     botonlineal.pack()
 
     borderlineal = LabelFrame(fmenu, bd = 6, bg = "grey", padx= 10, pady=17)
     borderlineal.pack()#.grid(column=1, row=2)
-    botonlineal = tk.Button(borderlineal, text = "2) Error Absoluto\n y Relativo", bg="light grey", width = 14, height= 2, font = ("Arial", 20, "bold"), cursor = "circle")#, command =  lambda:[errorabcoluto(root)] )
+    botonlineal = tk.Button(borderlineal, text = "4) Error Absoluto\n y Relativo", bg="light grey", width = 14, height= 2, font = ("Arial", 20, "bold"), cursor = "circle")#, command =  lambda:[errorabcoluto(root)] )
     botonlineal.pack()
 
     borderlineal = LabelFrame(fmenu, bd = 6, bg = "grey", padx= 10, pady=16)
     borderlineal.pack()#.grid(column=1, row=3)
-    botonlineal = tk.Button(borderlineal, text = "3) Funciones", bg="light grey", width = 14, height= 2, font = ("Arial", 20, "bold"), cursor = "circle", command = lambda:[menufun(root),fmenu.destroy()])#(bo = False)])
+    botonlineal = tk.Button(borderlineal, text = "5) Funciones", bg="light grey", width = 14, height= 2, font = ("Arial", 20, "bold"), cursor = "circle", command = lambda:[menufun(root),fmenu.destroy()])#(bo = False)])
     botonlineal.pack()
 
     borderlineal = LabelFrame(fmenu, bd = 6, bg = "grey", padx= 10, pady=16)
     borderlineal.pack()#.grid(column=1, row=4)
-    botonlineal = tk.Button(borderlineal, text = "4) Semilla ", bg="light grey", width = 14, height= 2, font = ("Arial", 20, "bold"), cursor = "circle")#, command =  lambda:[semilla(root)] )
+    botonlineal = tk.Button(borderlineal, text = "6) Semilla ", bg="light grey", width = 14, height= 2, font = ("Arial", 20, "bold"), cursor = "circle")#, command =  lambda:[semilla(root)] )
+    botonlineal.pack()
+    
+    borderlineal = LabelFrame(fmenu, bd = 6, bg = "grey", padx= 10, pady=17)
+    borderlineal.pack()#.grid(column=1, row=1)
+    botonlineal = tk.Button(borderlineal, text = "7) Converción \n Numerica", bg="light grey",width = 14, height= 2, font = ("Arial", 20, "bold"), cursor = "circle")#, command =  lambda:[redondeoTruncamiento(root)])
     botonlineal.pack()
 
 def menufun(root):
     """frame de l sub menu secundario en el area de menu de opciones de solo los tipos de funciones"""
-    #CReacion del frame
+    #Ceeacion del frame
     fmenufun = tk.Frame(root, height=625, width=300, bg='grey', padx= 10, pady=10 )
     fmenufun.place(x=0,y=0)#.pack(fill="x")
 
