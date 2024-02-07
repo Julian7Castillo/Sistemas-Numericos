@@ -13,6 +13,7 @@ class FormPrincipal(tk.Tk):
         self.configuracion()
         self.paneles()
         self.menuop()
+        self.bienvenida()
     
     def configuracion(self):
         """Configuración de la ventana """
@@ -24,37 +25,51 @@ class FormPrincipal(tk.Tk):
     def paneles(self):
         """Creación de los paneles que dividiran la interfaz """
         
-        #Declaracion de la barra de scroll
-        scroll = Scrollbar(self.barra_menu, orient='vertical')
-        scroll.pack(side="right", fill="y")
-        
         #Creacion de panel del menu
-        self.barra_menu = tk.Frame(self, bg="grey", width=310, yscrollcommand=scroll.set)
+        self.barra_menu = tk.Frame(self, bg="grey")
         self.barra_menu.pack(side=tk.LEFT, fill="both", expand=False)
-        
-        #Configuracion del scroll en el opanel
-        scroll.config(command=self.barra_menu.winfo_y)
         
         #CReacion del panel del area de trabajo
         self.AreaTrabajo = tk.Frame(self, bg="light grey")
         self.AreaTrabajo.pack(side=tk.RIGHT, fill="both", expand=True)
+        
+        #Creacion de canvas
+        self.canv = tk.Canvas(self.barra_menu, bg="grey", width=235)
+        self.canv.pack(side="left", fill="both", expand = 1)
+        
+        #Declaracion de la barra de scroll
+        self.scroll = Scrollbar(self.barra_menu, orient="vertical", command=self.canv.yview)
+        self.scroll.pack(side="right", fill="y")
+        
+        #configuracion de canvas
+        self.canv.configure(yscrollcommand=self.scroll.set)
+        self.canv.bind('<Configure>', lambda e: self.canv.configure(scrollregion = self.canv.bbox("all")))
+        
+        #crear otro frame en el canvas 
+        self.menu = tk.Frame(self.canv, bg="grey", width=310)
+        
+        #Agregar el nuevo frame al canvas
+        self.canv.create_window((0,0), window = self.menu, anchor="nw")
+        
+        #Configuracion del scroll en el opanel
+        self.scroll.config(command=self.barra_menu)
 
     def menuop(self):
         """Creación de menu lateral por medio de un ciclo para mejorar la eficiencia del código"""
-        
+
         #datos del menu lateral
         ancho_menu = 16
         alto_menu = 2
         font_awesome = font.Font = ("Arial", 15, "bold")
         
         #Creacion de los bordes para lso botones
-        self.bordeCal = tk.LabelFrame(self.barra_menu)
-        self.bordefig = tk.LabelFrame(self.barra_menu)
-        self.bordered = tk.LabelFrame(self.barra_menu)
-        self.bordeerr = tk.LabelFrame(self.barra_menu)
-        self.bordefun = tk.LabelFrame(self.barra_menu)
-        self.bordesem = tk.LabelFrame(self.barra_menu)
-        self.bordecon = tk.LabelFrame(self.barra_menu)
+        self.bordeCal = tk.LabelFrame(self.menu)
+        self.bordefig = tk.LabelFrame(self.menu)
+        self.bordered = tk.LabelFrame(self.menu)
+        self.bordeerr = tk.LabelFrame(self.menu)
+        self.bordefun = tk.LabelFrame(self.menu)
+        self.bordesem = tk.LabelFrame(self.menu)
+        self.bordecon = tk.LabelFrame(self.menu)
         
         #Creacion de los botones
         self.calculadora = tk.Button(self.bordeCal)
@@ -79,22 +94,22 @@ class FormPrincipal(tk.Tk):
         #Configuracion de los botones
         for borde, text, boton, comando in button_info:
             self.config_boton_menu(borde, boton, text, font_awesome, ancho_menu, alto_menu, comando)
-    
+        
     def menufun(self):
         """Creacióm de menu latertal por mediuo de un cilo para mejorar la eficiencia del codigo"""
-        
+
         #datos del menu lateral
         ancho_menu = 16
         alto_menu = 2
         font_awesome = font.Font = ("Arial", 15, "bold")
         
         #Creacion de los bordes para lso botones
-        self.bordepoli = tk.LabelFrame(self.barra_menu)
-        self.borderaci = tk.LabelFrame(self.barra_menu)
-        self.borderadi = tk.LabelFrame(self.barra_menu)
-        self.bordeexpo = tk.LabelFrame(self.barra_menu)
-        self.bordeloga = tk.LabelFrame(self.barra_menu)
-        self.bordeVol = tk.LabelFrame(self.barra_menu)
+        self.bordepoli = tk.LabelFrame(self.menu)
+        self.borderaci = tk.LabelFrame(self.menu)
+        self.borderadi = tk.LabelFrame(self.menu)
+        self.bordeexpo = tk.LabelFrame(self.menu)
+        self.bordeloga = tk.LabelFrame(self.menu)
+        self.bordeVol = tk.LabelFrame(self.menu)
         
         #Creacion de los botones
         self.polinomicas = tk.Button(self.bordepoli)
@@ -125,6 +140,9 @@ class FormPrincipal(tk.Tk):
     
         boton.config(text=f"{text}", ancho="w", font=font_awesome, bd=0, bg="light grey", width=ancho_menu, height=alto_menu, cursor = "circle", command = comando)
         boton.pack(side=tk.TOP)
+        
+    def CalculadoraPanel(self):
+        pass
     
     def limpiarPanel(self, panel):
         """Funcion para Destrio todos los hijos de panel gracias al winfo _children que se le indique limpiando el panel que baya encontrando por eso se encientra en un bucle parea que se pueda hubicar otro panel diferente """
@@ -139,9 +157,13 @@ class FormPrincipal(tk.Tk):
         self.limpiarPanel(self.barra_menu)
         self.menuop()
 
+    def bienvenida(self):
+        texto = tk.Label(self.AreaTrabajo, text="Bienvenido", font = ("Arial", 35, "bold"))
+        texto.pack(side=tk.TOP, fill="both", expand=True)
+        
     def cal(self):
-        pass
-
-
+        self.limpiarPanel(self.AreaTrabajo)
+        self.CalculadoraPanel()
+        
 # if __name__ == "__main__":
 #     main()
