@@ -44,7 +44,7 @@ def menuop(self):
         (self.bordefra, " 2)  Fracciones ",self.fracciones, self.fra),
         (self.bordefig, " 3)  Figuras      \nGeometricas", self.figuras, self.figGeo),
         (self.bordered, " 4)  Redendeo  y \n Truncamiento ", self.redondeo, self.red),
-        (self.bordeerr, " 5)  Error Absoluto \n y Relativo ", self.error, self.error),
+        (self.bordeerr, " 5)  Error Absoluto \n y Relativo ", self.error, self.errorab),
         (self.bordefun, " 6)  Funciones ", self.funciones, self.cambiarMenu),
         (self.bordesem, " 7)  Semilla ",self.semilla, self.sem),
         (self.bordecon, " 8)  Converción \n Numerica ", self.convercion, self.connum),
@@ -82,11 +82,11 @@ def menufun(self):
     
     #informacion de los botones
     button_info = [
-        (self.bordepoli, " 1)  Funciones    \nPolinomicas",self.polinomicas, self.limpiarPanel),
-        (self.borderaci, " 2)  Funciones    \nRacionales", self.racionales, self.limpiarPanel),
-        (self.borderadi, " 3)  Funciones    \nRadicales", self.radicales, self.limpiarPanel),
-        (self.bordeexpo, " 4)  Funciones    \nExponenciales", self.exponenciales, self.limpiarPanel),
-        (self.bordeloga, " 5)  Funciones    \nLogaritmicas", self.logaritmica, self.limpiarPanel),
+        (self.bordepoli, " 1)  Funciones    \nPolinomicas",self.polinomicas, self.funPolinomica),
+        (self.borderaci, " 2)  Funciones    \nRacionales", self.racionales, self.funRacional),
+        (self.borderadi, " 3)  Funciones    \nRadicales", self.radicales, self.funRadical),
+        (self.bordeexpo, " 4)  Funciones    \nExponenciales", self.exponenciales, self.funExponencial),
+        (self.bordeloga, " 5)  Funciones    \nLogaritmicas", self.logaritmica, self.funLogaritmica),
         (self.bordeVol, " 6)  Volver",self.volver, self.volvermenup)
     ]
     

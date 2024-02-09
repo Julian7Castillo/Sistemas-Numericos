@@ -25,10 +25,10 @@ def bienvenida(self):
 def CalculadoraPanel(self):
     pass
     
-def redondeoTruncamiento(root):
+def redondeoTruncamiento(self):
     """Frame del area de trabajo de redondeo y truncamiento"""
     #creacion del frame para ubicar los widgets 
-    frmprt = tk.Frame(root, height=625, width=760, bg='dark grey')
+    frmprt = tk.Frame(self.AreaTrabajo, height=625, width=760, bg='dark grey')
     frmprt.place(x=300, y=0)
 
     # texto del tituo y de digitar el valor con un campo de texto para digitar valores
@@ -46,10 +46,10 @@ def redondeoTruncamiento(root):
     #botonlineal = Button(borderlineal, text = "Redendear y Truncar", bg="light grey",width = 20, height= 1, font = ("Arial", 30, "bold"), cursor = "circle", command =  lambda: [red(frmprt, x, dec)])
     #botonlineal.pack()
 
-def errorabcoluto(root):
+def errorabcoluto(self):
     """Frame del area de trabajo con la interfaz del error absoluto"""
     #creacion del frame para ubicar los widgets 
-    frmpea = tk.Frame(root, height=625, width=760, bg='dark grey')
+    frmpea = tk.Frame(self.AreaTrabajo, height=625, width=760, bg='dark grey')
     frmpea.place(x=300, y=0)
 
     # texto del tituo y de digitar el valor con un campo de texto para digitar valores
@@ -58,10 +58,10 @@ def errorabcoluto(root):
     valor = tk.Entry(frmpea, font= ("Arial", 20))
     valor.place(x=350,y=160)#.grid(column=1, row=2)
 
-def semilla(root):
+def semilla(self):
     """Funcion de interfaz de frame para hallar la semilla de una funcion """
     #creacion del frame para ubicar los widgets 
-    frmps = tk.Frame(root, height=625, width=760, bg='dark grey')
+    frmps = tk.Frame(self.AreaTrabajo, height=625, width=760, bg='dark grey')
     frmps.place(x=300, y=0)
 
     # texto del tituo y de digitar el valor con un campo de texto para digitar valores

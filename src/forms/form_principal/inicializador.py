@@ -2,10 +2,9 @@
 from tkinter import Scrollbar
 import tkinter as tk
 import src.util.utilidades as utl
-from src.forms.form_principal.formBarraSuperior import barraSuperior
+from src.forms.form_barra_superior.formBarraSuperior import barraSuperior
 from src.forms.form_menu.menus import menuop, menufun
 from src.forms.form_area_trabajo.areaTrabajo import *
-
 
 class FormPrincipal(tk.Tk):
     
@@ -14,7 +13,7 @@ class FormPrincipal(tk.Tk):
         super().__init__()
         
         #imagenes necesaria precargadas
-        #self.img_sitio_construccion = utl.leer_imagen("./img/sitio_construccion.png", (400, 400))
+        self.img_sitio_construccion = utl.leer_imagen("./Sistemas-Numericos/src/img/sitio_construccion.png", (400, 400))
         
         #funciones necesaria para la visualización de todo
         self.configuracion()
@@ -106,27 +105,27 @@ class FormPrincipal(tk.Tk):
     def cal(self):
         """Funcion para limpiar el panel y llamar la funcion asignada en el arera de trabajo desde el script de area de trabajo"""
         self.limpiarPanel(self.AreaTrabajo)
-        CalculadoraPanel()
+        CalculadoraPanel(self)
     
     def fra(self):
         """Funcion para limpiar el panel y llamar la funcion asignada en el arera de trabajo desde el script de area de trabajo"""
         self.limpiarPanel(self.AreaTrabajo)
-        CalculadoraPanel()
+        panel_Constuccion(self)
     
     def figGeo(self):
         """Funcion para limpiar el panel y llamar la funcion asignada en el arera de trabajo desde el script de area de trabajo"""
         self.limpiarPanel(self.AreaTrabajo)
-        self.CalculadoraPanel()
+        panel_Constuccion(self)
     
     def red(self):
         """Funcion para limpiar el panel y llamar la funcion asignada en el arera de trabajo desde el script de area de trabajo"""
         self.limpiarPanel(self.AreaTrabajo)
-        self.CalculadoraPanel()
+        redondeoTruncamiento(self)
         
-    def error(self):
+    def errorab(self):
         """Funcion para limpiar el panel y llamar la funcion asignada en el arera de trabajo desde el script de area de trabajo"""
         self.limpiarPanel(self.AreaTrabajo)
-        self.CalculadoraPanel()
+        errorabcoluto(self)
     
     def cambiarMenu(self):
         """Cambiar el menu principal de opciones por el menu de funciones"""
@@ -141,47 +140,47 @@ class FormPrincipal(tk.Tk):
     def funPolinomica(self):
         """Funcion para limpiar el panel y llamar la funcion asignada en el arera de trabajo desde el script de area de trabajo"""
         self.limpiarPanel(self.AreaTrabajo)
-        self.CalculadoraPanel()
+        panel_Constuccion(self)
         
     def funRacional(self):
         """Funcion para limpiar el panel y llamar la funcion asignada en el arera de trabajo desde el script de area de trabajo"""
         self.limpiarPanel(self.AreaTrabajo)
-        self.CalculadoraPanel()
+        panel_Constuccion(self)
         
     def funRadical(self):
         """Funcion para limpiar el panel y llamar la funcion asignada en el arera de trabajo desde el script de area de trabajo"""
         self.limpiarPanel(self.AreaTrabajo)
-        self.CalculadoraPanel()
+        panel_Constuccion(self)
         
     def funExponencial(self):
         """Funcion para limpiar el panel y llamar la funcion asignada en el arera de trabajo desde el script de area de trabajo"""
         self.limpiarPanel(self.AreaTrabajo)
-        self.CalculadoraPanel()
+        panel_Constuccion(self)
         
     def funLogaritmica(self):
         """Funcion para limpiar el panel y llamar la funcion asignada en el arera de trabajo desde el script de area de trabajo"""
         self.limpiarPanel(self.AreaTrabajo)
-        self.CalculadoraPanel()
+        panel_Constuccion(self)
         
     def sem(self):
         """Funcion para limpiar el panel y llamar la funcion asignada en el arera de trabajo desde el script de area de trabajo"""
         self.limpiarPanel(self.AreaTrabajo)
-        self.CalculadoraPanel()
+        semilla(self)
         
     def connum(self):
         """Funcion para limpiar el panel y llamar la funcion asignada en el arera de trabajo desde el script de area de trabajo"""
         self.limpiarPanel(self.AreaTrabajo)
-        self.CalculadoraPanel()
+        panel_Constuccion(self)
         
     def opci(self):
         """Funcion para limpiar el panel y llamar la funcion asignada en el arera de trabajo desde el script de area de trabajo"""
         self.limpiarPanel(self.AreaTrabajo)
-        self.CalculadoraPanel()
+        panel_Constuccion(self)
         
     def infor(self):
         """Funcion para limpiar el panel y llamar la funcion asignada en el arera de trabajo desde el script de area de trabajo"""
         self.limpiarPanel(self.AreaTrabajo)
-        self.CalculadoraPanel()
+        panel_Constuccion(self)
         
 # if __name__ == "__main__":
 #     main()
