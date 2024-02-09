@@ -140,27 +140,27 @@ class FormPrincipal(tk.Tk):
     def funPolinomica(self):
         """Funcion para limpiar el panel y llamar la funcion asignada en el arera de trabajo desde el script de area de trabajo"""
         self.limpiarPanel(self.AreaTrabajo)
-        panel_Constuccion(self)
+        general(self, 1)
         
     def funRacional(self):
         """Funcion para limpiar el panel y llamar la funcion asignada en el arera de trabajo desde el script de area de trabajo"""
         self.limpiarPanel(self.AreaTrabajo)
-        panel_Constuccion(self)
+        general(self, 2)
         
     def funRadical(self):
         """Funcion para limpiar el panel y llamar la funcion asignada en el arera de trabajo desde el script de area de trabajo"""
         self.limpiarPanel(self.AreaTrabajo)
-        panel_Constuccion(self)
+        general(self, 3)
         
     def funExponencial(self):
         """Funcion para limpiar el panel y llamar la funcion asignada en el arera de trabajo desde el script de area de trabajo"""
         self.limpiarPanel(self.AreaTrabajo)
-        panel_Constuccion(self)
+        general(self, 4)
         
     def funLogaritmica(self):
         """Funcion para limpiar el panel y llamar la funcion asignada en el arera de trabajo desde el script de area de trabajo"""
         self.limpiarPanel(self.AreaTrabajo)
-        panel_Constuccion(self)
+        general(self, 5)
         
     def sem(self):
         """Funcion para limpiar el panel y llamar la funcion asignada en el arera de trabajo desde el script de area de trabajo"""
