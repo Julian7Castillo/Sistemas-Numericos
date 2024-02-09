@@ -1,19 +1,27 @@
 #importamos las librerias necesarias 
 from tkinter import Scrollbar
 import tkinter as tk
-from tkinter import  font
 import src.util.utilidades as utl
+from src.forms.form_principal.formBarraSuperior import barraSuperior
 from src.forms.form_menu.menus import menuop, menufun
+from src.forms.form_area_trabajo.areaTrabajo import *
+
 
 class FormPrincipal(tk.Tk):
     
     def __init__(self):
         """Constructor de la ventana principal que contendra los elementos visuales"""
         super().__init__()
+        
+        #imagenes necesaria precargadas
+        #self.img_sitio_construccion = utl.leer_imagen("./img/sitio_construccion.png", (400, 400))
+        
+        #funciones necesaria para la visualización de todo
         self.configuracion()
         self.paneles()
-        self.menuop()
-        self.bienvenida()
+        barraSuperior(self)
+        menuop(self)
+        bienvenida(self)
     
     def configuracion(self):
         """Configuración de la ventana """
@@ -27,9 +35,6 @@ class FormPrincipal(tk.Tk):
         #crear paneles: barra superior, menu lateral y cuerpo principal
         self.barra_superior = tk.Frame(self, bg="#2A3138", height=50)
         self.barra_superior.pack(side=tk.TOP, fill="both")
-        
-        titulo = tk.Label(self.barra_superior, text="Sistemas numericos", fg="white",bg="#2A3138", font = ("Arial", 35, "bold"))
-        titulo.pack()
         
         #Creacion de panel del menu
         self.barra_menu = tk.Frame(self, bg="grey")
@@ -78,93 +83,12 @@ class FormPrincipal(tk.Tk):
         #Agregar el nuevo frame al canvas del area de trabajo
         #self.canvtrab.create_window((0,0), window = self.trab, anchor="nw")
 
-    def menuop(self):
-        """Creación de menu lateral por medio de un ciclo para mejorar la eficiencia del código"""
-
-        #datos del menu lateral
-        ancho_menu = 16
-        alto_menu = 2
-        font_awesome = font.Font = ("Arial", 15, "bold")
-        
-        #Creacion de los bordes para lso botones
-        self.bordeCal = tk.LabelFrame(self.menu)
-        self.bordefra = tk.LabelFrame(self.menu)
-        self.bordefig = tk.LabelFrame(self.menu)
-        self.bordered = tk.LabelFrame(self.menu)
-        self.bordeerr = tk.LabelFrame(self.menu)
-        self.bordefun = tk.LabelFrame(self.menu)
-        self.bordesem = tk.LabelFrame(self.menu)
-        self.bordecon = tk.LabelFrame(self.menu)
-        self.bordeop = tk.LabelFrame(self.menu)
-        self.bordeinfo = tk.LabelFrame(self.menu)
-        
-        #Creacion de los botones
-        self.calculadora = tk.Button(self.bordeCal)
-        self.fracciones = tk.Button(self.bordefra)
-        self.figuras = tk.Button(self.bordefig)
-        self.redondeo = tk.Button(self.bordered)
-        self.error = tk.Button(self.bordeerr)
-        self.funciones = tk.Button(self.bordefun)
-        self.semilla = tk.Button(self.bordesem)
-        self.convercion = tk.Button(self.bordecon)
-        self.opciones = tk.Button(self.bordeop)
-        self.informacion = tk.Button(self.bordeinfo)
-        
-        #informacion de los botones
-        button_info = [
-            (self.bordeCal, " 1)  Calculadora ",self.calculadora, self.cal),
-            (self.bordefra, " 2)  Fracciones ",self.fracciones, self.fra),
-            (self.bordefig, " 3)  Figuras      \nGeometricas", self.figuras, self.figGeo),
-            (self.bordered, " 4)  Redendeo  y \n Truncamiento ", self.redondeo, self.red),
-            (self.bordeerr, " 5)  Error Absoluto \n y Relativo ", self.error, self.error),
-            (self.bordefun, " 6)  Funciones ", self.funciones, self.cambiarMenu),
-            (self.bordesem, " 7)  Semilla ",self.semilla, self.sem),
-            (self.bordecon, " 8)  Converción \n Numerica ", self.convercion, self.connum),
-            (self.bordeop, " 9)  Opciones ", self.opciones, self.opci),
-            (self.bordeinfo, " 10)  Información ", self.informacion, self.infor)
-        ]
-        
-        #Configuracion de los botones
-        for borde, text, boton, comando in button_info:
-            self.config_boton_menu(borde, boton, text, font_awesome, ancho_menu, alto_menu, comando)
-        
-    def menufun(self):
-        """Creacióm de menu latertal por mediuo de un cilo para mejorar la eficiencia del codigo"""
-
-        #datos del menu lateral
-        ancho_menu = 16
-        alto_menu = 2
-        font_awesome = font.Font = ("Arial", 15, "bold")
-        
-        #Creacion de los bordes para lso botones
-        self.bordepoli = tk.LabelFrame(self.menu)
-        self.borderaci = tk.LabelFrame(self.menu)
-        self.borderadi = tk.LabelFrame(self.menu)
-        self.bordeexpo = tk.LabelFrame(self.menu)
-        self.bordeloga = tk.LabelFrame(self.menu)
-        self.bordeVol = tk.LabelFrame(self.menu)
-        
-        #Creacion de los botones
-        self.polinomicas = tk.Button(self.bordepoli)
-        self.racionales = tk.Button(self.borderaci)
-        self.radicales = tk.Button(self.borderadi)
-        self.exponenciales = tk.Button(self.bordeexpo)
-        self.logaritmica = tk.Button(self.bordeloga)
-        self.volver = tk.Button(self.bordeVol)
-        
-        #informacion de los botones
-        button_info = [
-            (self.bordepoli, " 1)  Funciones    \nPolinomicas",self.polinomicas, self.limpiarPanel),
-            (self.borderaci, " 2)  Funciones    \nRacionales", self.racionales, self.limpiarPanel),
-            (self.borderadi, " 3)  Funciones    \nRadicales", self.radicales, self.limpiarPanel),
-            (self.bordeexpo, " 4)  Funciones    \nExponenciales", self.exponenciales, self.limpiarPanel),
-            (self.bordeloga, " 5)  Funciones    \nLogaritmicas", self.logaritmica, self.limpiarPanel),
-            (self.bordeVol, " 6)  Volver",self.volver, self.volvermenup)
-        ]
-        
-        #Configuracion de los botones
-        for borde, text, boton, comando in button_info:
-            self.config_boton_menu(borde, boton, text, font_awesome, ancho_menu, alto_menu, comando)
+    def toggle_panel(self):
+        """Alterar la visiblidad del menu lateral si esta visible lo retira en la visibilidad y si no se encuentra visible, lo ajusta al lado derecho en el eje y para pocisionarlo """
+        if self.barra_menu.winfo_ismapped():
+            self.barra_menu.pack_forget()
+        else:
+            self.barra_menu.pack(side=tk.LEFT, fill="y")
     
     def config_boton_menu(self, borde, boton, text, font_awesome, ancho_menu, alto_menu, comando):
         """Configuracion de los bordes y los botones del menu lateral"""
@@ -174,62 +98,90 @@ class FormPrincipal(tk.Tk):
         boton.config(text=f"{text}", ancho="w", font=font_awesome, bd=0, bg="#32404F", fg="white", width=ancho_menu, height=alto_menu, cursor = "circle", command = comando) #light grey
         boton.pack(side=tk.TOP)
         
-    def CalculadoraPanel(self):
-        pass
-    
     def limpiarPanel(self, panel):
         """Funcion para Destrio todos los hijos de panel gracias al winfo _children que se le indique limpiando el panel que baya encontrando por eso se encientra en un bucle parea que se pueda hubicar otro panel diferente """
         for widget in panel.winfo_children():
             widget.destroy()
-    
-    def cambiarMenu(self):
-        self.limpiarPanel(self.menu)
-        self.menufun()
-        
-    def volvermenup(self):
-        self.limpiarPanel(self.menu)
-        self.menuop()
 
-    def bienvenida(self):
-        texto = tk.Label(self.AreaTrabajo, text="Bienvenido", font = ("Arial", 35, "bold"))
-        texto.pack(side=tk.TOP, fill="both", expand=True)
-        
     def cal(self):
+        """Funcion para limpiar el panel y llamar la funcion asignada en el arera de trabajo desde el script de area de trabajo"""
         self.limpiarPanel(self.AreaTrabajo)
-        self.CalculadoraPanel()
+        CalculadoraPanel()
     
     def fra(self):
+        """Funcion para limpiar el panel y llamar la funcion asignada en el arera de trabajo desde el script de area de trabajo"""
         self.limpiarPanel(self.AreaTrabajo)
-        self.CalculadoraPanel()
+        CalculadoraPanel()
     
     def figGeo(self):
+        """Funcion para limpiar el panel y llamar la funcion asignada en el arera de trabajo desde el script de area de trabajo"""
         self.limpiarPanel(self.AreaTrabajo)
         self.CalculadoraPanel()
     
     def red(self):
+        """Funcion para limpiar el panel y llamar la funcion asignada en el arera de trabajo desde el script de area de trabajo"""
         self.limpiarPanel(self.AreaTrabajo)
         self.CalculadoraPanel()
         
     def error(self):
+        """Funcion para limpiar el panel y llamar la funcion asignada en el arera de trabajo desde el script de area de trabajo"""
+        self.limpiarPanel(self.AreaTrabajo)
+        self.CalculadoraPanel()
+    
+    def cambiarMenu(self):
+        """Cambiar el menu principal de opciones por el menu de funciones"""
+        self.limpiarPanel(self.menu)
+        menufun(self)
+        
+    def volvermenup(self):
+        """Cambiar el menu de funciones por el menu principal de opciones"""
+        self.limpiarPanel(self.menu)
+        menuop(self)
+        
+    def funPolinomica(self):
+        """Funcion para limpiar el panel y llamar la funcion asignada en el arera de trabajo desde el script de area de trabajo"""
+        self.limpiarPanel(self.AreaTrabajo)
+        self.CalculadoraPanel()
+        
+    def funRacional(self):
+        """Funcion para limpiar el panel y llamar la funcion asignada en el arera de trabajo desde el script de area de trabajo"""
+        self.limpiarPanel(self.AreaTrabajo)
+        self.CalculadoraPanel()
+        
+    def funRadical(self):
+        """Funcion para limpiar el panel y llamar la funcion asignada en el arera de trabajo desde el script de area de trabajo"""
+        self.limpiarPanel(self.AreaTrabajo)
+        self.CalculadoraPanel()
+        
+    def funExponencial(self):
+        """Funcion para limpiar el panel y llamar la funcion asignada en el arera de trabajo desde el script de area de trabajo"""
+        self.limpiarPanel(self.AreaTrabajo)
+        self.CalculadoraPanel()
+        
+    def funLogaritmica(self):
+        """Funcion para limpiar el panel y llamar la funcion asignada en el arera de trabajo desde el script de area de trabajo"""
         self.limpiarPanel(self.AreaTrabajo)
         self.CalculadoraPanel()
         
     def sem(self):
+        """Funcion para limpiar el panel y llamar la funcion asignada en el arera de trabajo desde el script de area de trabajo"""
         self.limpiarPanel(self.AreaTrabajo)
         self.CalculadoraPanel()
         
     def connum(self):
+        """Funcion para limpiar el panel y llamar la funcion asignada en el arera de trabajo desde el script de area de trabajo"""
         self.limpiarPanel(self.AreaTrabajo)
         self.CalculadoraPanel()
         
     def opci(self):
+        """Funcion para limpiar el panel y llamar la funcion asignada en el arera de trabajo desde el script de area de trabajo"""
         self.limpiarPanel(self.AreaTrabajo)
         self.CalculadoraPanel()
         
     def infor(self):
+        """Funcion para limpiar el panel y llamar la funcion asignada en el arera de trabajo desde el script de area de trabajo"""
         self.limpiarPanel(self.AreaTrabajo)
         self.CalculadoraPanel()
         
-    
 # if __name__ == "__main__":
 #     main()

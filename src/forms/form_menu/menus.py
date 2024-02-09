@@ -6,81 +6,91 @@ import tkinter as tk
 #from areaTrabajo import *
 #from Funciones import *
 
-def menuop(root):
-    """Funcion de la interfaz del area de menu principal de los sistemas numericos"""
-    #creacion del frame para el menu
-    fmenu = tk.Frame(root, height=625, width=300, bg='grey', padx= 10, pady=10 )
-    fmenu.place(x=0,y=0)#.pack(fill="x")
+def menuop(self):
+    """Creación de menu lateral por medio de un ciclo para mejorar la eficiencia del código"""
 
-    #Creacion de los botones del menu
-    borderlineal = LabelFrame(fmenu, bd = 6, bg = "grey", padx= 10, pady=17)
-    borderlineal.pack()#.grid(column=1, row=1)
-    botonlineal = tk.Button(borderlineal, text = "1) Calculadora", bg="light grey",width = 14, height= 2, font = ("Arial", 20, "bold"), cursor = "circle")#, command =  lambda:[redondeoTruncamiento(root)])
-    botonlineal.pack()
+    #datos del menu lateral
+    ancho_menu = 16
+    alto_menu = 2
+    font_awesome = font = ("Arial", 15, "bold")
     
-    borderlineal = LabelFrame(fmenu, bd = 6, bg = "grey", padx= 10, pady=17)
-    borderlineal.pack()#.grid(column=1, row=1)
-    botonlineal = tk.Button(borderlineal, text = "2) Figuras \n Geometricas", bg="light grey",width = 14, height= 2, font = ("Arial", 20, "bold"), cursor = "circle")#, command =  lambda:[redondeoTruncamiento(root)])
-    botonlineal.pack()
+    #Creacion de los bordes para lso botones
+    self.bordeCal = tk.LabelFrame(self.menu)
+    self.bordefra = tk.LabelFrame(self.menu)
+    self.bordefig = tk.LabelFrame(self.menu)
+    self.bordered = tk.LabelFrame(self.menu)
+    self.bordeerr = tk.LabelFrame(self.menu)
+    self.bordefun = tk.LabelFrame(self.menu)
+    self.bordesem = tk.LabelFrame(self.menu)
+    self.bordecon = tk.LabelFrame(self.menu)
+    self.bordeop = tk.LabelFrame(self.menu)
+    self.bordeinfo = tk.LabelFrame(self.menu)
     
-    borderlineal = LabelFrame(fmenu, bd = 6, bg = "grey", padx= 10, pady=17)
-    borderlineal.pack()#.grid(column=1, row=1)
-    botonlineal = tk.Button(borderlineal, text = "3) Redendeo \n y truncamiento", bg="light grey",width = 14, height= 2, font = ("Arial", 20, "bold"), cursor = "circle")#, command =  lambda:[redondeoTruncamiento(root)])
-    botonlineal.pack()
-
-    borderlineal = LabelFrame(fmenu, bd = 6, bg = "grey", padx= 10, pady=17)
-    borderlineal.pack()#.grid(column=1, row=2)
-    botonlineal = tk.Button(borderlineal, text = "4) Error Absoluto\n y Relativo", bg="light grey", width = 14, height= 2, font = ("Arial", 20, "bold"), cursor = "circle")#, command =  lambda:[errorabcoluto(root)] )
-    botonlineal.pack()
-
-    borderlineal = LabelFrame(fmenu, bd = 6, bg = "grey", padx= 10, pady=16)
-    borderlineal.pack()#.grid(column=1, row=3)
-    botonlineal = tk.Button(borderlineal, text = "5) Funciones", bg="light grey", width = 14, height= 2, font = ("Arial", 20, "bold"), cursor = "circle", command = lambda:[menufun(root),fmenu.destroy()])#(bo = False)])
-    botonlineal.pack()
-
-    borderlineal = LabelFrame(fmenu, bd = 6, bg = "grey", padx= 10, pady=16)
-    borderlineal.pack()#.grid(column=1, row=4)
-    botonlineal = tk.Button(borderlineal, text = "6) Semilla ", bg="light grey", width = 14, height= 2, font = ("Arial", 20, "bold"), cursor = "circle")#, command =  lambda:[semilla(root)] )
-    botonlineal.pack()
+    #Creacion de los botones
+    self.calculadora = tk.Button(self.bordeCal)
+    self.fracciones = tk.Button(self.bordefra)
+    self.figuras = tk.Button(self.bordefig)
+    self.redondeo = tk.Button(self.bordered)
+    self.error = tk.Button(self.bordeerr)
+    self.funciones = tk.Button(self.bordefun)
+    self.semilla = tk.Button(self.bordesem)
+    self.convercion = tk.Button(self.bordecon)
+    self.opciones = tk.Button(self.bordeop)
+    self.informacion = tk.Button(self.bordeinfo)
     
-    borderlineal = LabelFrame(fmenu, bd = 6, bg = "grey", padx= 10, pady=17)
-    borderlineal.pack()#.grid(column=1, row=1)
-    botonlineal = tk.Button(borderlineal, text = "7) Converción \n Numerica", bg="light grey",width = 14, height= 2, font = ("Arial", 20, "bold"), cursor = "circle")#, command =  lambda:[redondeoTruncamiento(root)])
-    botonlineal.pack()
+    #informacion de los botones
+    button_info = [
+        (self.bordeCal, " 1)  Calculadora ",self.calculadora, self.cal),
+        (self.bordefra, " 2)  Fracciones ",self.fracciones, self.fra),
+        (self.bordefig, " 3)  Figuras      \nGeometricas", self.figuras, self.figGeo),
+        (self.bordered, " 4)  Redendeo  y \n Truncamiento ", self.redondeo, self.red),
+        (self.bordeerr, " 5)  Error Absoluto \n y Relativo ", self.error, self.error),
+        (self.bordefun, " 6)  Funciones ", self.funciones, self.cambiarMenu),
+        (self.bordesem, " 7)  Semilla ",self.semilla, self.sem),
+        (self.bordecon, " 8)  Converción \n Numerica ", self.convercion, self.connum),
+        (self.bordeop, " 9)  Opciones ", self.opciones, self.opci),
+        (self.bordeinfo, " 10)  Información ", self.informacion, self.infor)
+    ]
+    
+    #Configuracion de los botones
+    for borde, text, boton, comando in button_info:
+        self.config_boton_menu(borde, boton, text, font_awesome, ancho_menu, alto_menu, comando)
+    
+def menufun(self):
+    """Creacióm de menu latertal por mediuo de un cilo para mejorar la eficiencia del codigo"""
 
-def menufun(root):
-    """frame de l sub menu secundario en el area de menu de opciones de solo los tipos de funciones"""
-    #Ceeacion del frame
-    fmenufun = tk.Frame(root, height=625, width=300, bg='grey', padx= 10, pady=10 )
-    fmenufun.place(x=0,y=0)#.pack(fill="x")
-
-    #creacion de los botones
-    borderlineal = LabelFrame(fmenufun, bd = 6, bg = "grey", padx= 10, pady=8)
-    borderlineal.grid(column=1, row=1)
-    botonlineal = tk.Button(borderlineal, text = "1) Funciones \nPolinomicas", bg="light grey", width = 20, height= 2, font = ("Arial", 15, "bold"), cursor = "circle")#, command =  lambda:[general(1,root)] )
-    botonlineal.pack()
-
-    borderlineal = LabelFrame(fmenufun, bd = 6, bg = "grey", padx= 10, pady=8)
-    borderlineal.grid(column=1, row=2)
-    botonlineal = tk.Button(borderlineal, text = "2) Funciones \nRacionales", bg="light grey", width = 20, height= 2, font = ("Arial", 15, "bold"), cursor = "circle")#, command =  lambda:[general(2,root)])
-    botonlineal.pack()
-
-    borderlineal = LabelFrame(fmenufun, bd = 6, bg = "grey", padx= 10, pady=8)
-    borderlineal.grid(column=1, row=3)
-    botonlineal = tk.Button(borderlineal, text = "3) Funciones \nRadicales", bg="light grey", width = 20, height= 2, font = ("Arial", 15, "bold"), cursor = "circle")#, command =  lambda:[general(3,root)] )
-    botonlineal.pack()
-
-    borderlineal = LabelFrame(fmenufun, bd = 6, bg = "grey", padx= 10, pady=8)
-    borderlineal.grid(column=1, row=4)
-    botonlineal = tk.Button(borderlineal, text = "4) Funciones\n Exponenciales", bg="light grey", width = 20, height= 2, font = ("Arial", 15, "bold"), cursor = "circle")#, command =  lambda:[general(4,root)])
-    botonlineal.pack()
-
-    borderlineal = LabelFrame(fmenufun, bd = 6, bg = "grey", padx= 10, pady=8)
-    borderlineal.grid(column=1, row=5)
-    botonlineal = tk.Button(borderlineal, text = "5) Funciones\n Logaritmicas", bg="light grey", width = 20, height= 2, font = ("Arial", 15, "bold"), cursor = "circle")#, command =  lambda:[general(5,root)] )
-    botonlineal.pack()
-
-    borderlineal = LabelFrame(fmenufun, bd = 6, bg = "grey", padx= 10, pady=6)
-    borderlineal.grid(column=1, row=6)
-    botonlineal = tk.Button(borderlineal, text = "6) Volver", bg="light grey", width = 20, height= 1, font = ("Arial", 15, "bold"), cursor = "circle", command =  lambda:[menuop(root), fmenufun.destroy()])#bo = True, return bo])
-    botonlineal.pack()
+    #datos del menu lateral
+    ancho_menu = 16
+    alto_menu = 2
+    font_awesome = font = ("Arial", 15, "bold")
+    
+    #Creacion de los bordes para lso botones
+    self.bordepoli = tk.LabelFrame(self.menu)
+    self.borderaci = tk.LabelFrame(self.menu)
+    self.borderadi = tk.LabelFrame(self.menu)
+    self.bordeexpo = tk.LabelFrame(self.menu)
+    self.bordeloga = tk.LabelFrame(self.menu)
+    self.bordeVol = tk.LabelFrame(self.menu)
+    
+    #Creacion de los botones
+    self.polinomicas = tk.Button(self.bordepoli)
+    self.racionales = tk.Button(self.borderaci)
+    self.radicales = tk.Button(self.borderadi)
+    self.exponenciales = tk.Button(self.bordeexpo)
+    self.logaritmica = tk.Button(self.bordeloga)
+    self.volver = tk.Button(self.bordeVol)
+    
+    #informacion de los botones
+    button_info = [
+        (self.bordepoli, " 1)  Funciones    \nPolinomicas",self.polinomicas, self.limpiarPanel),
+        (self.borderaci, " 2)  Funciones    \nRacionales", self.racionales, self.limpiarPanel),
+        (self.borderadi, " 3)  Funciones    \nRadicales", self.radicales, self.limpiarPanel),
+        (self.bordeexpo, " 4)  Funciones    \nExponenciales", self.exponenciales, self.limpiarPanel),
+        (self.bordeloga, " 5)  Funciones    \nLogaritmicas", self.logaritmica, self.limpiarPanel),
+        (self.bordeVol, " 6)  Volver",self.volver, self.volvermenup)
+    ]
+    
+    #Configuracion de los botones
+    for borde, text, boton, comando in button_info:
+        self.config_boton_menu(borde, boton, text, font_awesome, ancho_menu, alto_menu, comando)
+    
