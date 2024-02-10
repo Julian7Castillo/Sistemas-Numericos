@@ -1,6 +1,7 @@
 #importamos librerias
 from tkinter import *
 import tkinter as tk
+from src.forms.form_area_trabajo.form_informacion.informacion import InfoDesign
 
 #importamos las demas funiones de los otros archvos
 #from areaTrabajo import *
@@ -93,4 +94,5 @@ def menufun(self):
     #Configuracion de los botones
     for borde, text, boton, comando in button_info:
         self.config_boton_menu(borde, boton, text, font_awesome, ancho_menu, alto_menu, comando)
+        
     

@@ -5,6 +5,7 @@ import src.util.utilidades as utl
 from src.forms.form_barra_superior.formBarraSuperior import barraSuperior
 from src.forms.form_menu.menus import menuop, menufun
 from src.forms.form_area_trabajo.areaTrabajo import *
+from src.forms.form_area_trabajo.form_informacion.informacion import InfoDesign
 
 class FormPrincipal(tk.Tk):
     
@@ -13,7 +14,7 @@ class FormPrincipal(tk.Tk):
         super().__init__()
         
         #imagenes necesaria precargadas
-        self.img_sitio_construccion = utl.leer_imagen("./Sistemas-Numericos/src/img/sitio_construccion.png", (400, 400))
+        self.img_sitio_construccion = utl.leer_imagen("./src/img/sitio_construccion.png", (200, 200))
         
         #funciones necesaria para la visualización de todo
         self.configuracion()
@@ -106,26 +107,31 @@ class FormPrincipal(tk.Tk):
         """Funcion para limpiar el panel y llamar la funcion asignada en el arera de trabajo desde el script de area de trabajo"""
         self.limpiarPanel(self.AreaTrabajo)
         CalculadoraPanel(self)
+        panel_Constuccion(self)
     
     def fra(self):
         """Funcion para limpiar el panel y llamar la funcion asignada en el arera de trabajo desde el script de area de trabajo"""
         self.limpiarPanel(self.AreaTrabajo)
+        Fracciones(self)
         panel_Constuccion(self)
     
     def figGeo(self):
         """Funcion para limpiar el panel y llamar la funcion asignada en el arera de trabajo desde el script de area de trabajo"""
         self.limpiarPanel(self.AreaTrabajo)
+        figurasGeometricas(self)
         panel_Constuccion(self)
     
     def red(self):
         """Funcion para limpiar el panel y llamar la funcion asignada en el arera de trabajo desde el script de area de trabajo"""
         self.limpiarPanel(self.AreaTrabajo)
         redondeoTruncamiento(self)
+        panel_Constuccion(self)
         
     def errorab(self):
         """Funcion para limpiar el panel y llamar la funcion asignada en el arera de trabajo desde el script de area de trabajo"""
         self.limpiarPanel(self.AreaTrabajo)
         errorabcoluto(self)
+        panel_Constuccion(self)
     
     def cambiarMenu(self):
         """Cambiar el menu principal de opciones por el menu de funciones"""
@@ -170,17 +176,18 @@ class FormPrincipal(tk.Tk):
     def connum(self):
         """Funcion para limpiar el panel y llamar la funcion asignada en el arera de trabajo desde el script de area de trabajo"""
         self.limpiarPanel(self.AreaTrabajo)
+        conversionNumerica(self)
         panel_Constuccion(self)
         
     def opci(self):
         """Funcion para limpiar el panel y llamar la funcion asignada en el arera de trabajo desde el script de area de trabajo"""
         self.limpiarPanel(self.AreaTrabajo)
+        Opciones(self)
         panel_Constuccion(self)
         
     def infor(self):
         """Funcion para limpiar el panel y llamar la funcion asignada en el arera de trabajo desde el script de area de trabajo"""
-        self.limpiarPanel(self.AreaTrabajo)
-        panel_Constuccion(self)
+        InfoDesign()
         
 # if __name__ == "__main__":
 #     main()

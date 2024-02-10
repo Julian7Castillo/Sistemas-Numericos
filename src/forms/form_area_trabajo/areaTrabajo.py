@@ -25,7 +25,15 @@ def bienvenida(self):
 def CalculadoraPanel(self):
     texto = tk.Label(self.AreaTrabajo, text="Calculadora", font = ("Arial", 35, "bold"))
     texto.pack(side=tk.TOP, fill="both", expand=True)
-    
+
+def Fracciones(self):
+    texto = tk.Label(self.AreaTrabajo, text="Fracciones", font = ("Arial", 35, "bold"))
+    texto.pack(side=tk.TOP, fill="both", expand=True)
+
+def figurasGeometricas(self):
+    texto = tk.Label(self.AreaTrabajo, text="Figuras geometricas", font = ("Arial", 35, "bold"))
+    texto.pack(side=tk.TOP, fill="both", expand=True)
+
 def redondeoTruncamiento(self):
     """Frame del area de trabajo de redondeo y truncamiento"""
 
@@ -211,3 +219,11 @@ def general(self, tip):
     borderlineal.place(x = 150, y = 440)
     botonlineal = tk.Button(borderlineal, text = " Graficar ", width = 15, height= 1, font = ("Arial", 30, "bold"), cursor = "circle" )#, command = lambda: [veri(tip, fxentry, fxentry2, fxentry3, fxentry4, fxentry5, fxentry6)])
     botonlineal.pack()
+    
+def conversionNumerica(self):
+    texto = tk.Label(self.AreaTrabajo, text="Conversion numerica", font = ("Arial", 35, "bold"))
+    texto.pack(side=tk.TOP, fill="both", expand=True)
+
+def Opciones(self):
+    texto = tk.Label(self.AreaTrabajo, text="Opciones de Configuración ", font = ("Arial", 35, "bold"))
+    texto.pack(side=tk.TOP, fill="both", expand=True)
