@@ -125,13 +125,11 @@ class FormPrincipal(tk.Tk):
         """Funcion para limpiar el panel y llamar la funcion asignada en el arera de trabajo desde el script de area de trabajo"""
         self.limpiarPanel(self.AreaTrabajo)
         redondeoTruncamiento(self)
-        panel_Constuccion(self)
         
     def errorab(self):
         """Funcion para limpiar el panel y llamar la funcion asignada en el arera de trabajo desde el script de area de trabajo"""
         self.limpiarPanel(self.AreaTrabajo)
         errorabcoluto(self)
-        panel_Constuccion(self)
     
     def cambiarMenu(self):
         """Cambiar el menu principal de opciones por el menu de funciones"""

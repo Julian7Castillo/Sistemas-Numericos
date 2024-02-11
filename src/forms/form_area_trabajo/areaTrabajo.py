@@ -29,6 +29,66 @@ def CalculadoraPanel(self):
 def Fracciones(self):
     texto = tk.Label(self.AreaTrabajo, text="Fracciones", font = ("Arial", 35, "bold"))
     texto.pack(side=tk.TOP, fill="both", expand=True)
+    
+    #etiquetas de titulos de fracciones 
+    tk.Label(self.AreaTrabajo, text="Fraccio 1:").place(x=48, y=8)
+    tk.Label(self.AreaTrabajo, text="Fraccio 2:").place(x=198, y=8)
+    
+    #FRACCION 1
+    #frame para la fraccion
+    ffrac1 = tk.Frame(self.AreaTrabajo, width=100, height = 60)
+    ffrac1.place(x=20, y=35)
+    
+    #frame para la entrada del entero
+    fx1 = tk.Frame(ffrac1, width=42, height=27)
+    fx1.grid(row=0, column=0, rowspan=2) 
+    
+    #label y entrada de texto 
+    tk.Label(fx1, text="Ent").pack(side="left")
+    self.txt1E = tk.Entry(fx1, width=4)
+    self.txt1E.pack(side="right")
+    
+    #dos entradas de texto y un label indicando que son dfe la fraccionfuera del tercer frame 
+    tk.Label(ffrac1, text="Num").grid(row=0, column=2)
+    tk.Label(ffrac1, text="den").grid(row=1, column=2)
+    
+    self.txt1N = tk.Entry (ffrac1, width=4)
+    self.txt1D = tk.Entry (ffrac1, width=4)
+    self.txt1N.grid(row=0, column=1)
+    self.txt1D.grid(row=1, column=1)
+    
+    #FRACCION 2
+    #frame para la fraccion
+    ffrac2 = tk.Frame(self.AreaTrabajo, width=100, height = 60)
+    ffrac2.place(x=180, y=35)
+    
+    #frame para la entrada del entero
+    fx2 = tk.Frame(ffrac2, width=42, height=27)
+    fx2.grid(row=0, column=0, rowspan=2) 
+    
+    #label y entrada de texto 
+    tk.Label(fx2, text="Ent").pack(side="left")
+    self.txt2E = tk.Entry(fx2, width=4)
+    self.txt2E.pack(side="right")
+    
+    #dos entradas de texto y un label indicando que son dfe la fraccionfuera del tercer frame 
+    tk.Label(ffrac2, text="Num").grid(row=0, column=2)
+    tk.Label(ffrac2, text="den").grid(row=1, column=2)
+    
+    self.txt2N = tk.Entry (ffrac2, width=4)
+    self.txt2D = tk.Entry (ffrac2, width=4)
+    self.txt2N.grid(row=0, column=1)
+    self.txt2D.grid(row=1, column=1)
+    
+    #Textos aparte de las fracciones para indicar las operaciones y el resultado
+    tk.Label(self.AreaTrabajo, text="Operacion:").place(x=30, y=150)
+    tk.Label(self.AreaTrabajo, text="Resultado: ").place(x=30, y=90)
+    
+    #combobox
+    self.opciones = ["Suma","Resta","Multiplicación","División", "Son Iguales"]
+    self.cmbOpciones = tk.Combobox(self, width="10", value=self.opciones, state="readonly")
+    self.cmbOpciones.place(x=100, y="150")
+    self.cmbOpciones.current(0)
 
 def figurasGeometricas(self):
     texto = tk.Label(self.AreaTrabajo, text="Figuras geometricas", font = ("Arial", 35, "bold"))
