@@ -59,7 +59,7 @@ class FormPrincipal(tk.Tk):
         self.canvmenu.create_window((0,0), window = self.menu, anchor="nw")
         
         #CReacion del panel del area de trabajo
-        self.AreaTrabajo = tk.Frame(self, bg="light grey")
+        self.AreaTrabajo = tk.Frame(self, bg="light grey", padx=10, pady=20)
         self.AreaTrabajo.pack(side=tk.RIGHT, fill="both", expand=True)
         
         #codigo ocmentado del scrop para el area de trabajo 
@@ -113,7 +113,6 @@ class FormPrincipal(tk.Tk):
         """Funcion para limpiar el panel y llamar la funcion asignada en el arera de trabajo desde el script de area de trabajo"""
         self.limpiarPanel(self.AreaTrabajo)
         Fracciones(self)
-        panel_Constuccion(self)
     
     def figGeo(self):
         """Funcion para limpiar el panel y llamar la funcion asignada en el arera de trabajo desde el script de area de trabajo"""

@@ -1,5 +1,6 @@
 #importamos librerias
 import tkinter as tk
+from tkinter.ttk import Combobox
 
 #from Controlador.controladorBotones import red, error, fsemilla
 
@@ -28,67 +29,94 @@ def CalculadoraPanel(self):
 
 def Fracciones(self):
     texto = tk.Label(self.AreaTrabajo, text="Fracciones", font = ("Arial", 35, "bold"))
-    texto.pack(side=tk.TOP, fill="both", expand=True)
+    texto.pack(side=tk.TOP, fill="x")
     
-    #etiquetas de titulos de fracciones 
-    tk.Label(self.AreaTrabajo, text="Fraccio 1:").place(x=48, y=8)
-    tk.Label(self.AreaTrabajo, text="Fraccio 2:").place(x=198, y=8)
+    #Frame de fraccione
+    ff = tk.Frame(self.AreaTrabajo, padx=20, pady=20)
+    ff.pack(side=tk.TOP, fill="x")
     
     #FRACCION 1
     #frame para la fraccion
-    ffrac1 = tk.Frame(self.AreaTrabajo, width=100, height = 60)
-    ffrac1.place(x=20, y=35)
+    ffrac1 = tk.Frame(ff, padx=20, pady=20)
+    ffrac1.pack(side=tk.LEFT, fill="x")
+    
+    #etiquetas de titulos de fracciones 
+    tk.Label(ffrac1, text="Fraccio 1:", font = ("Arial", 25)).grid(row=0, column=0, rowspan=2)
     
     #frame para la entrada del entero
-    fx1 = tk.Frame(ffrac1, width=42, height=27)
-    fx1.grid(row=0, column=0, rowspan=2) 
+    fx1 = tk.Frame(ffrac1, width=42, height=27, padx=20, pady=20)
+    fx1.grid(row=3, column=0)
     
     #label y entrada de texto 
-    tk.Label(fx1, text="Ent").pack(side="left")
-    self.txt1E = tk.Entry(fx1, width=4)
+    tk.Label(fx1, text="Ent", font = ("Arial", 25)).pack(side="left")
+    self.txt1E = tk.Entry(fx1, width=4, font = ("Arial", 25))
     self.txt1E.pack(side="right")
     
     #dos entradas de texto y un label indicando que son dfe la fraccionfuera del tercer frame 
-    tk.Label(ffrac1, text="Num").grid(row=0, column=2)
-    tk.Label(ffrac1, text="den").grid(row=1, column=2)
+    tk.Label(ffrac1, text="Num", font = ("Arial", 25)).grid(row=3, column=2)
+    tk.Label(ffrac1, text="den", font = ("Arial", 25)).grid(row=4, column=2)
     
-    self.txt1N = tk.Entry (ffrac1, width=4)
-    self.txt1D = tk.Entry (ffrac1, width=4)
-    self.txt1N.grid(row=0, column=1)
-    self.txt1D.grid(row=1, column=1)
+    self.txt1N = tk.Entry (ffrac1, width=4, font = ("Arial", 25))
+    self.txt1D = tk.Entry (ffrac1, width=4, font = ("Arial", 25))
+    self.txt1N.grid(row=3, column=1)
+    self.txt1D.grid(row=4, column=1)
     
     #FRACCION 2
     #frame para la fraccion
-    ffrac2 = tk.Frame(self.AreaTrabajo, width=100, height = 60)
-    ffrac2.place(x=180, y=35)
+    ffrac2 = tk.Frame(ff, padx=20, pady=20)
+    ffrac2.pack(side=tk.RIGHT, fill="x")
+    
+    #etiquetas de titulos de fracciones
+    tk.Label(ffrac2, text="Fraccio 2:", font = ("Arial", 25)).grid(row=0, column=0)
     
     #frame para la entrada del entero
-    fx2 = tk.Frame(ffrac2, width=42, height=27)
-    fx2.grid(row=0, column=0, rowspan=2) 
+    fx2 = tk.Frame(ffrac2, padx=20, pady=20)
+    fx2.grid(row=3, column=0) 
     
     #label y entrada de texto 
-    tk.Label(fx2, text="Ent").pack(side="left")
-    self.txt2E = tk.Entry(fx2, width=4)
+    tk.Label(fx2, text="Ent", font = ("Arial", 25)).pack(side="left")
+    self.txt2E = tk.Entry(fx2, width=4, font = ("Arial", 25))
     self.txt2E.pack(side="right")
     
     #dos entradas de texto y un label indicando que son dfe la fraccionfuera del tercer frame 
-    tk.Label(ffrac2, text="Num").grid(row=0, column=2)
-    tk.Label(ffrac2, text="den").grid(row=1, column=2)
+    tk.Label(ffrac2, text="Num", font = ("Arial", 25)).grid(row=3, column=2)
+    tk.Label(ffrac2, text="den", font = ("Arial", 25)).grid(row=4, column=2)
     
-    self.txt2N = tk.Entry (ffrac2, width=4)
-    self.txt2D = tk.Entry (ffrac2, width=4)
-    self.txt2N.grid(row=0, column=1)
-    self.txt2D.grid(row=1, column=1)
+    self.txt2N = tk.Entry (ffrac2, width=4, font = ("Arial", 25))
+    self.txt2D = tk.Entry (ffrac2, width=4, font = ("Arial", 25))
+    self.txt2N.grid(row=3, column=1)
+    self.txt2D.grid(row=4, column=1)
+    
+    #frame de tipo de operacion 
+    ff1 = tk.Frame(self.AreaTrabajo, padx=200, pady=20)
+    ff1.pack(side=tk.TOP, fill="x")
     
     #Textos aparte de las fracciones para indicar las operaciones y el resultado
-    tk.Label(self.AreaTrabajo, text="Operacion:").place(x=30, y=150)
-    tk.Label(self.AreaTrabajo, text="Resultado: ").place(x=30, y=90)
+    tk.Label(ff1, text="Operacion:", font = ("Arial", 25)).pack(side=tk.LEFT)
     
     #combobox
     self.opciones = ["Suma","Resta","Multiplicación","División", "Son Iguales"]
-    self.cmbOpciones = tk.Combobox(self, width="10", value=self.opciones, state="readonly")
-    self.cmbOpciones.place(x=100, y="150")
+    self.cmbOpciones = Combobox(ff1, width="14", value=self.opciones, state="readonly", font = ("Arial", 25))
+    self.cmbOpciones.pack(side=tk.RIGHT)
     self.cmbOpciones.current(0)
+    
+    #frame de tipo de operacion 
+    ff2 = tk.Frame(self.AreaTrabajo, padx=200)
+    ff2.pack(side=tk.TOP, fill="x")
+    
+    tk.Label(ff2, text="Resultado: ", font = ("Arial", 25)).pack(side=tk.LEFT)
+    
+    #campo de texto para el resultado
+    self.txtRes = tk.Entry(ff2, width=15, font = ("Arial", 25))
+    self.txtRes.pack(side=tk.RIGHT)
+    
+    #frame boton
+    ff3 = tk.Frame(self.AreaTrabajo, padx=20, pady=20)
+    ff3.pack(side=tk.TOP, fill="both", expand=True)
+    
+    #Boton para hacer las operaciones
+    self.btnCalcular = tk.Button(ff3, text="Calcular", font = ("Arial", 25))#, command = self.fCalcular)
+    self.btnCalcular.pack(side=tk.TOP)
 
 def figurasGeometricas(self):
     texto = tk.Label(self.AreaTrabajo, text="Figuras geometricas", font = ("Arial", 35, "bold"))
@@ -178,7 +206,7 @@ def semilla(self):
     #botonlineal.pack()
 
 def general(self, tip):
-    """Funcion se seleccion de tipo de funcion a mostrar por pantalla en el area de tabajdo"""
+    """Funcion se seleccion de tipo de funcion a mostrar por pantalla en el area de trabajo"""
 
     #variables de loso campos d las funciones    
     fxentry2 = 0
@@ -186,97 +214,100 @@ def general(self, tip):
     fxentry4 = 0 
     fxentry5 = 0 
     fxentry6 = 0
+    
+    frameg = tk.Frame(self.AreaTrabajo, bg="light gray")
+    frameg.pack(side=tk.TOP, fill="both", expand=True)
         
     if tip == 1:
         # texto del tituo
-        tk.Label(self.AreaTrabajo, text="1) Funciones Polinomicas", font= ("Arial", 35, "bold"), justify="center", bg="light grey").place(x=20,y=20)#.grid(column=1, row=1)
-        fx = tk.Label(self.AreaTrabajo, text = "f(x) = ", font= ("Arial", 35), pady = 10, bg="light grey").place(x = 5, y = 170)
-        fxentry = tk.Entry(self.AreaTrabajo, highlightthickness=2, width= 3, font= ("Arial", 30))
+        tk.Label(frameg, text="1) Funciones Polinomicas", font= ("Arial", 35, "bold"), justify="center", bg="light grey").place(x=20,y=20)#.grid(column=1, row=1)
+        fx = tk.Label(frameg, text = "f(x) = ", font= ("Arial", 35), pady = 10, bg="light grey").place(x = 5, y = 170)
+        fxentry = tk.Entry(frameg, highlightthickness=2, width= 3, font= ("Arial", 30))
         fxentry.place(x = 120, y = 180)
-        fx = tk.Label(self.AreaTrabajo, text = "x^3 +", font= ("Arial", 35), pady = 30, bg="light grey").place(x = 200, y = 150)
-        fxentry2 = tk.Entry(self.AreaTrabajo, highlightthickness=2, width= 3, font= ("Arial", 30))
+        fx = tk.Label(frameg, text = "x^3 +", font= ("Arial", 35), pady = 30, bg="light grey").place(x = 200, y = 150)
+        fxentry2 = tk.Entry(frameg, highlightthickness=2, width= 3, font= ("Arial", 30))
         fxentry2.place(x = 320, y = 180)
-        fx = tk.Label(self.AreaTrabajo, text = "x^2 +", font= ("Arial", 35), pady = 30, bg="light grey").place(x = 400, y = 150)
-        fxentry3 = tk.Entry(self.AreaTrabajo, highlightthickness=2, width= 3, font= ("Arial", 30))
+        fx = tk.Label(frameg, text = "x^2 +", font= ("Arial", 35), pady = 30, bg="light grey").place(x = 400, y = 150)
+        fxentry3 = tk.Entry(frameg, highlightthickness=2, width= 3, font= ("Arial", 30))
         fxentry3.place(x = 520, y = 180)
-        fx = tk.Label(self.AreaTrabajo, text = "x +", font= ("Arial", 35), pady = 30, bg="light grey").place(x = 600, y = 150)
-        fxentry4 = tk.Entry(self.AreaTrabajo, highlightthickness=2, width= 3, font= ("Arial", 30))
+        fx = tk.Label(frameg, text = "x +", font= ("Arial", 35), pady = 30, bg="light grey").place(x = 600, y = 150)
+        fxentry4 = tk.Entry(frameg, highlightthickness=2, width= 3, font= ("Arial", 30))
         fxentry4.place(x = 670, y = 180)
         
     elif tip == 2:
        # texto del tituo
-        tk.Label(self.AreaTrabajo, text="2) Funciones Racionales", font= ("Arial", 40, "bold"), justify="center", bg="light gray").place(x=20,y=20)#.grid(column=1, row=1)
+        tk.Label(frameg, text="2) Funciones Racionales", font= ("Arial", 40, "bold"), justify="center", bg="light gray").place(x=20,y=20)#.grid(column=1, row=1)
         #objetos y pociciones de la formula 
-        fx = tk.Label(self.AreaTrabajo, text = "f(x) = ", pady = 10, font= ("Arial", 35), bg="light gray").place(x = 20, y = 240)
-        fxentry = tk.Entry(self.AreaTrabajo, highlightthickness=2, width= 3, font= ("Arial", 35))
+        fx = tk.Label(frameg, text = "f(x) = ", pady = 10, font= ("Arial", 35), bg="light gray").place(x = 20, y = 240)
+        fxentry = tk.Entry(frameg, highlightthickness=2, width= 3, font= ("Arial", 35))
         fxentry.place(x = 150, y = 160) 
-        fx = tk.Label(self.AreaTrabajo, text = "x^2 +", font= ("Arial", 35), bg="light gray").place(x = 250, y = 160)
-        fxentry2 = tk.Entry(self.AreaTrabajo, highlightthickness=2, width= 3, font= ("Arial", 35))
+        fx = tk.Label(frameg, text = "x^2 +", font= ("Arial", 35), bg="light gray").place(x = 250, y = 160)
+        fxentry2 = tk.Entry(frameg, highlightthickness=2, width= 3, font= ("Arial", 35))
         fxentry2.place(x = 400, y = 160)
-        fx = tk.Label(self.AreaTrabajo, text = "x +", font= ("Arial", 35), bg="light gray").place(x = 500, y = 160)
-        fxentry3 = tk.Entry(self.AreaTrabajo, highlightthickness=2, width= 3, font= ("Arial", 35))
+        fx = tk.Label(frameg, text = "x +", font= ("Arial", 35), bg="light gray").place(x = 500, y = 160)
+        fxentry3 = tk.Entry(frameg, highlightthickness=2, width= 3, font= ("Arial", 35))
         fxentry3.place(x = 600, y = 160)
-        linea = tk.Label(self.AreaTrabajo, text = "_____________________", font= ("Arial", 35), bg="light gray").place(x = 160, y = 230) 
-        fxentry4 = tk.Entry(self.AreaTrabajo, highlightthickness=1, width= 3, font= ("Arial", 35))
+        linea = tk.Label(frameg, text = "_____________________", font= ("Arial", 35), bg="light gray").place(x = 160, y = 230) 
+        fxentry4 = tk.Entry(frameg, highlightthickness=1, width= 3, font= ("Arial", 35))
         fxentry4.place(x = 150, y = 330)
-        fx = tk.Label(self.AreaTrabajo, text = "x^2 +", font= ("Arial", 35), bg="light gray").place(x = 250, y = 330)
-        fxentry5 = tk.Entry(self.AreaTrabajo, highlightthickness=2, width= 3, font= ("Arial", 35))
+        fx = tk.Label(frameg, text = "x^2 +", font= ("Arial", 35), bg="light gray").place(x = 250, y = 330)
+        fxentry5 = tk.Entry(frameg, highlightthickness=2, width= 3, font= ("Arial", 35))
         fxentry5.place(x = 400, y = 330)
-        fx = tk.Label(self.AreaTrabajo, text = "x +", font= ("Arial", 35), bg="light gray").place(x = 500, y = 330)
-        fxentry6 = tk.Entry(self.AreaTrabajo, highlightthickness=2, width= 3, font= ("Arial", 35))
+        fx = tk.Label(frameg, text = "x +", font= ("Arial", 35), bg="light gray").place(x = 500, y = 330)
+        fxentry6 = tk.Entry(frameg, highlightthickness=2, width= 3, font= ("Arial", 35))
         fxentry6.place(x = 600, y = 330)
         
     elif  tip == 3:
         # texto del tituo
-        tk.Label(self.AreaTrabajo, text="3) Funciones Radicales", font= ("Arial", 40, "bold"), justify="center", bg="light gray").place(x=20,y=20)#.grid(column=1, row=1)
-        fx = tk.Label(self.AreaTrabajo, text = "f(x) = ", font= ("Arial", 35), pady = 10, bg="light gray").place(x = 10, y = 160)
-        fxentry4 = tk.Entry(self.AreaTrabajo, highlightthickness=1, width= 1, font= ("Arial", 25))
+        tk.Label(frameg, text="3) Funciones Radicales", font= ("Arial", 40, "bold"), justify="center", bg="light gray").place(x=20,y=20)#.grid(column=1, row=1)
+        fx = tk.Label(frameg, text = "f(x) = ", font= ("Arial", 35), pady = 10, bg="light gray").place(x = 10, y = 160)
+        fxentry4 = tk.Entry(frameg, highlightthickness=1, width= 1, font= ("Arial", 25))
         fxentry4.place(x = 130, y = 150)
-        fx = tk.Label(self.AreaTrabajo, text = "√", font= ("Arial", 50), bg="light gray").place(x = 155, y = 160)
-        linea = tk.Label(self.AreaTrabajo, text = "___________________", font= ("Arial", 35), bg="light gray").place(x = 195, y = 108) 
-        fxentry = tk.Entry(self.AreaTrabajo, highlightthickness=2, width= 3, font= ("Arial", 35))
+        fx = tk.Label(frameg, text = "√", font= ("Arial", 50), bg="light gray").place(x = 155, y = 160)
+        linea = tk.Label(frameg, text = "___________________", font= ("Arial", 35), bg="light gray").place(x = 195, y = 108) 
+        fxentry = tk.Entry(frameg, highlightthickness=2, width= 3, font= ("Arial", 35))
         fxentry.place(x = 205, y = 180)
-        fx = tk.Label(self.AreaTrabajo, text = "x^2 +", font= ("Arial", 35), bg="light gray").place(x = 295, y = 180)
-        fxentry2 = tk.Entry(self.AreaTrabajo, highlightthickness=2, width= 3, font= ("Arial", 35))
+        fx = tk.Label(frameg, text = "x^2 +", font= ("Arial", 35), bg="light gray").place(x = 295, y = 180)
+        fxentry2 = tk.Entry(frameg, highlightthickness=2, width= 3, font= ("Arial", 35))
         fxentry2.place(x = 425, y = 180)
-        fx = tk.Label(self.AreaTrabajo, text = "x +", font= ("Arial", 35), bg="light gray").place(x = 515, y = 180)
-        fxentry3 = tk.Entry(self.AreaTrabajo, highlightthickness=2, width= 3, font= ("Arial", 35))
+        fx = tk.Label(frameg, text = "x +", font= ("Arial", 35), bg="light gray").place(x = 515, y = 180)
+        fxentry3 = tk.Entry(frameg, highlightthickness=2, width= 3, font= ("Arial", 35))
         fxentry3.place(x = 595, y = 180)
         
     elif  tip == 4:
         # texto del tituo
-        tk.Label(self.AreaTrabajo, text="4) Funciones Exponenciales", font= ("Arial", 40, "bold"), justify="center", bg="light gray").place(x=10,y=20)#.grid(column=1, row=1
-        fx = tk.Label(self.AreaTrabajo, text = "f(x) = ", font= ("Arial", 35), pady = 10, bg="light gray").place(x = 20, y = 180)
-        fxentry = tk.Entry(self.AreaTrabajo, highlightthickness=2, width= 3, font= ("Arial", 35))
+        tk.Label(frameg, text="4) Funciones Exponenciales", font= ("Arial", 40, "bold"), justify="center", bg="light gray").place(x=10,y=20)#.grid(column=1, row=1
+        fx = tk.Label(frameg, text = "f(x) = ", font= ("Arial", 35), pady = 10, bg="light gray").place(x = 20, y = 180)
+        fxentry = tk.Entry(frameg, highlightthickness=2, width= 3, font= ("Arial", 35))
         fxentry.place(x = 150, y = 190)
-        fxentry2 = tk.Entry(self.AreaTrabajo, highlightthickness=2, width= 3, font= ("Arial", 35))
+        fxentry2 = tk.Entry(frameg, highlightthickness=2, width= 3, font= ("Arial", 35))
         fxentry2.place(x = 250, y = 150)
-        fx = tk.Label(self.AreaTrabajo, text = "x^2 +", font= ("Arial", 35), bg="light gray").place(x = 340, y = 150)
-        fxentry3 = tk.Entry(self.AreaTrabajo, highlightthickness=2, width= 3, font= ("Arial", 35))
+        fx = tk.Label(frameg, text = "x^2 +", font= ("Arial", 35), bg="light gray").place(x = 340, y = 150)
+        fxentry3 = tk.Entry(frameg, highlightthickness=2, width= 3, font= ("Arial", 35))
         fxentry3.place(x = 470, y = 150)
-        fx = tk.Label(self.AreaTrabajo, text = "x +", font= ("Arial", 35), bg="light gray").place(x =560, y = 150)
-        fxentry4 = tk.Entry(self.AreaTrabajo, highlightthickness=2, width= 3, font= ("Arial", 35))
+        fx = tk.Label(frameg, text = "x +", font= ("Arial", 35), bg="light gray").place(x =560, y = 150)
+        fxentry4 = tk.Entry(frameg, highlightthickness=2, width= 3, font= ("Arial", 35))
         fxentry4.place(x = 640, y = 150)
         
     elif  tip == 5:
         """Frame del area de trabajo con las funciones Logaritmicas"""
         # texto del tituo
-        tk.Label(self.AreaTrabajo, text="5) Funciones Logaritmicas", font= ("Arial", 40, "bold"), justify="center", bg="light gray").place(x=20,y=20)#.grid(column=1, row=1)
+        tk.Label(frameg, text="5) Funciones Logaritmicas", font= ("Arial", 40, "bold"), justify="center", bg="light gray").place(x=20,y=20)#.grid(column=1, row=1)
 
-        fx = tk.Label(self.AreaTrabajo, text = "f(x)= Log", font= ("Arial", 35), pady = 10, bg="light gray").place(x = 10, y = 140)
-        fxentry = tk.Entry(self.AreaTrabajo, highlightthickness=2, width= 2, font= ("Arial", 35))
+        fx = tk.Label(frameg, text = "f(x)= Log", font= ("Arial", 35), pady = 10, bg="light gray").place(x = 10, y = 140)
+        fxentry = tk.Entry(frameg, highlightthickness=2, width= 2, font= ("Arial", 35))
         fxentry.place(x = 230, y = 170)
-        fxentry2 = tk.Entry(self.AreaTrabajo, highlightthickness=2, width= 2, font= ("Arial", 35))
+        fxentry2 = tk.Entry(frameg, highlightthickness=2, width= 2, font= ("Arial", 35))
         fxentry2.place(x = 300, y = 150)
-        fx = tk.Label(self.AreaTrabajo, text = "x^2 +", font= ("Arial", 35), bg="light gray").place(x = 370, y = 150)
-        fxentry3 = tk.Entry(self.AreaTrabajo, highlightthickness=2, width= 2, font= ("Arial", 35))
+        fx = tk.Label(frameg, text = "x^2 +", font= ("Arial", 35), bg="light gray").place(x = 370, y = 150)
+        fxentry3 = tk.Entry(frameg, highlightthickness=2, width= 2, font= ("Arial", 35))
         fxentry3.place(x = 510, y = 150)
-        fx = tk.Label(self.AreaTrabajo, text = "x +", font= ("Arial", 35), bg="light gray").place(x = 580, y = 150)
-        fxentry4 = tk.Entry(self.AreaTrabajo, highlightthickness=2, width= 2, font= ("Arial", 35))
+        fx = tk.Label(frameg, text = "x +", font= ("Arial", 35), bg="light gray").place(x = 580, y = 150)
+        fxentry4 = tk.Entry(frameg, highlightthickness=2, width= 2, font= ("Arial", 35))
         fxentry4.place(x = 660, y = 150)
 
     borderlineal = tk.LabelFrame(self.AreaTrabajo, bd = 6, bg = "DodgerBlue2")
-    borderlineal.place(x = 150, y = 440)
+    borderlineal.pack()#.place(x = 130, y = 440)
     botonlineal = tk.Button(borderlineal, text = " Graficar ", width = 15, height= 1, font = ("Arial", 30, "bold"), cursor = "circle" )#, command = lambda: [veri(tip, fxentry, fxentry2, fxentry3, fxentry4, fxentry5, fxentry6)])
     botonlineal.pack()
     
