@@ -25,7 +25,6 @@ def menuop(self):
     self.bordesem = tk.LabelFrame(self.menu)
     self.bordecon = tk.LabelFrame(self.menu)
     self.bordeop = tk.LabelFrame(self.menu)
-    self.bordeinfo = tk.LabelFrame(self.menu)
     
     #Creacion de los botones
     self.calculadora = tk.Button(self.bordeCal)
@@ -37,7 +36,6 @@ def menuop(self):
     self.semilla = tk.Button(self.bordesem)
     self.convercion = tk.Button(self.bordecon)
     self.opciones = tk.Button(self.bordeop)
-    self.informacion = tk.Button(self.bordeinfo)
     
     #informacion de los botones
     button_info = [
@@ -49,8 +47,7 @@ def menuop(self):
         (self.bordefun, " 6)  Funciones ", self.funciones, self.cambiarMenu),
         (self.bordesem, " 7)  Semilla ",self.semilla, self.sem),
         (self.bordecon, " 8)  Converción \n Numerica ", self.convercion, self.connum),
-        (self.bordeop, " 9)  Opciones ", self.opciones, self.opci),
-        (self.bordeinfo, " 10)  Información ", self.informacion, self.infor)
+        (self.bordeop, " 9)  Opciones ", self.opciones, self.opci)
     ]
     
     #Configuracion de los botones
