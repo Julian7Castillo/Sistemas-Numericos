@@ -5,7 +5,6 @@ import src.util.utilidades as utl
 from src.forms.form_barra_superior.formBarraSuperior import barraSuperior
 from src.forms.form_menu.menus import menuop, menufun
 from src.forms.form_area_trabajo.areaTrabajo import *
-from src.forms.form_area_trabajo.form_informacion.informacion import InfoDesign
 
 class FormPrincipal(tk.Tk):
     
@@ -15,6 +14,9 @@ class FormPrincipal(tk.Tk):
         
         #imagenes necesaria precargadas
         self.img_sitio_construccion = utl.leer_imagen("./src/img/sitio_construccion.png", (200, 200))
+        
+        #variable de tema
+        self.vteme = "Claro"
         
         #funciones necesaria para la visualización de todo
         self.configuracion()
@@ -180,11 +182,6 @@ class FormPrincipal(tk.Tk):
         """Funcion para limpiar el panel y llamar la funcion asignada en el arera de trabajo desde el script de area de trabajo"""
         self.limpiarPanel(self.AreaTrabajo)
         Opciones(self)
-        panel_Constuccion(self)
-        
-    def infor(self):
-        """Funcion para limpiar el panel y llamar la funcion asignada en el arera de trabajo desde el script de area de trabajo"""
-        InfoDesign()
         
 # if __name__ == "__main__":
 #     main()
