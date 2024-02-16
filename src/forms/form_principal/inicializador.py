@@ -3,8 +3,16 @@ from tkinter import Scrollbar
 import tkinter as tk
 import src.util.utilidades as utl
 from src.forms.form_barra_superior.formBarraSuperior import barraSuperior
-from src.forms.form_menu.menus import menuop, menufun
-from src.forms.form_area_trabajo.areaTrabajo import *
+from src.forms.form_menu.menus import menuop, menufun, menufiguras
+from src.forms.form_area_trabajo.form_bienvenida_construccion.bienvenida import bienvenida, panel_Constuccion
+from src.forms.form_area_trabajo.form_calculadora.calculadora import CalculadoraPanel
+from src.forms.form_area_trabajo.form_Fracciones.fracciones import Fracciones
+from src.forms.form_area_trabajo.form_redondeo.redondeo import redondeoTruncamiento
+from src.forms.form_area_trabajo.form_error.error import errorabcoluto
+from src.forms.form_area_trabajo.form_convercion.conversion import conversionNumerica
+from src.forms.form_area_trabajo.form_figuras.figuras import figurasGeometricas
+from src.forms.form_area_trabajo.form_funciones.funciones import general, semilla
+from src.forms.form_area_trabajo.form_opciones.opciones import Opciones
 
 class FormPrincipal(tk.Tk):
     
@@ -118,6 +126,30 @@ class FormPrincipal(tk.Tk):
     
     def figGeo(self):
         """Funcion para limpiar el panel y llamar la funcion asignada en el arera de trabajo desde el script de area de trabajo"""
+        self.limpiarPanel(self.menu)
+        menufiguras(self)
+        
+    def cuad(self):
+        self.limpiarPanel(self.AreaTrabajo)
+        figurasGeometricas(self)
+        panel_Constuccion(self)
+    
+    def triang(self):
+        self.limpiarPanel(self.AreaTrabajo)
+        figurasGeometricas(self)
+        panel_Constuccion(self)
+    
+    def rectan(self):
+        self.limpiarPanel(self.AreaTrabajo)
+        figurasGeometricas(self)
+        panel_Constuccion(self)
+    
+    def circ(self):
+        self.limpiarPanel(self.AreaTrabajo)
+        figurasGeometricas(self)
+        panel_Constuccion(self)
+    
+    def paralelo(self):
         self.limpiarPanel(self.AreaTrabajo)
         figurasGeometricas(self)
         panel_Constuccion(self)
