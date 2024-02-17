@@ -69,29 +69,8 @@ class FormPrincipal(tk.Tk):
         self.canvmenu.create_window((0,0), window = self.menu, anchor="nw")
         
         #CReacion del panel del area de trabajo
-        self.AreaTrabajo = tk.Frame(self, bg="light grey", padx=10, pady=20)
+        self.AreaTrabajo = tk.Frame(self, bg="light grey", width=780, padx=10, pady=20)
         self.AreaTrabajo.pack(side=tk.RIGHT, fill="both", expand=True)
-        
-        #codigo ocmentado del scrop para el area de trabajo 
-        #Creacion de canvas trabajo
-        #self.canvtrab = tk.Canvas(self.AreaTrabajo, bg="grey")
-        #self.canvtrab.place(relx=0.001, rely=0.001, relwidth=0.99, relheight=0.999)
-        #self.canvtrab.pack(side="left", fill="both", expand = 1)
-        
-        #Declaracion de la barra de scrolldel area de trabajo
-        #self.scrolltrab = Scrollbar(self.AreaTrabajo, orient="vertical", command=self.canvtrab.yview)
-        #self.scrolltrab.place(relx=0.98, rely=0.001, relwidth=0.02, relheight=0.999)
-        #self.scrolltrab.pack(side="right", fill="y")
-        
-        #configuracion de canvas del area de trabajo
-        #self.canvtrab.configure(yscrollcommand=self.scrolltrab.set)
-        #self.canvtrab.bind('<Configure>', lambda e: self.canvtrab.configure(scrollregion = self.canvtrab.bbox("all")))
-        
-        #crear otro frame en el canvas del area de trabajo
-        #self.trab = tk.Frame(self.canvtrab)
-        
-        #Agregar el nuevo frame al canvas del area de trabajo
-        #self.canvtrab.create_window((0,0), window = self.trab, anchor="nw")
 
     def toggle_panel(self):
         """Alterar la visiblidad del menu lateral si esta visible lo retira en la visibilidad y si no se encuentra visible, lo ajusta al lado derecho en el eje y para pocisionarlo """
@@ -99,6 +78,10 @@ class FormPrincipal(tk.Tk):
             self.barra_menu.pack_forget()
         else:
             self.barra_menu.pack(side=tk.LEFT, fill="y")
+    
+    def cambienvenida(self):
+        self.limpiarPanel(self.AreaTrabajo)
+        bienvenida(self)
     
     def config_boton_menu(self, borde, boton, text, font_awesome, ancho_menu, alto_menu, comando):
         """Configuracion de los bordes y los botones del menu lateral"""
