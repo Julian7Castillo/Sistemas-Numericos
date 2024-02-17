@@ -2,7 +2,7 @@
 import tkinter as tk
 
 def bienvenida(self):
-    texto = tk.Label(self.AreaTrabajo, text="Bienvenido", font = ("Arial", 35, "bold"))
+    texto = tk.Label(self.AreaTrabajo, text="Bienvenido", bg="light grey" ,  font = ("Arial", 35, "bold"))
     texto.pack(side=tk.TOP, fill="both", expand=True)
 
 def panel_Constuccion(self):
