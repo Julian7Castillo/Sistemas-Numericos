@@ -1,6 +1,6 @@
 #importamos librerias
 import tkinter as tk
-#from Controlador.controladorBotones import red, error, fsemilla
+from src.util.funciones.controladorBotones import red, error, fsemilla, veri
 
 def general(self, tip):
     """Funcion se seleccion de tipo de funcion a mostrar por pantalla en el area de trabajo"""
@@ -113,7 +113,7 @@ def general(self, tip):
 
     borderlineal = tk.LabelFrame(self.AreaTrabajo, bd = 6, bg = "DodgerBlue2")
     borderlineal.pack()#.place(x = 130, y = 440)
-    botonlineal = tk.Button(borderlineal, text = " Graficar ", width = 15, height= 1, font = ("Arial", 30, "bold"), cursor = "circle" )#, command = lambda: [veri(tip, fxentry, fxentry2, fxentry3, fxentry4, fxentry5, fxentry6)])
+    botonlineal = tk.Button(borderlineal, text = " Graficar ", width = 15, height= 1, font = ("Arial", 30, "bold"), cursor = "circle" , command = lambda: [veri(tip, fxentry, fxentry2, fxentry3, fxentry4, fxentry5, fxentry6)])
     botonlineal.pack()
    
 def semilla(self):
@@ -173,5 +173,5 @@ def semilla(self):
     #marco y boton para graficar
     borderlineal = tk.LabelFrame(frameg, bd = 6, bg = "DodgerBlue2")
     borderlineal.place(x = 530, y = 200)    
-    botonlineal = tk.Button(borderlineal, text = " Graficar ", width = 10, height= 1, font = ("Arial", 20, "bold"), cursor = "circle" )#, command = lambda: fsemilla(frmps, fxentry, fxentry2, fxentry3, fxentry4, l12, l13, l14, l15, l16 ,l17))
+    botonlineal = tk.Button(borderlineal, text = " Graficar ", width = 10, height= 1, font = ("Arial", 20, "bold"), cursor = "circle", command = lambda: fsemilla(frameg, fxentry, fxentry2, fxentry3, fxentry4, l12, l13, l14, l15, l16 ,l17))
     botonlineal.pack()

@@ -1,6 +1,53 @@
 import tkinter as tk
+from tkinter import messagebox
 from tkinter.ttk import Combobox
+from src.util.fracciones.ClaseFraccionesMixtas import FracMix
 
+def fCalcular(self):
+    e1 = int(self.txt1E.get())
+    n1 = int(self.txt1N.get())
+    d1 = int(self.txt1D.get())
+    f1 = FracMix(e1,n1,d1)
+    
+    e2 = int(self.txt2E.get())
+    n2 = int(self.txt2N.get())
+    d2 = int(self.txt2D.get())
+    f2 = FracMix(e2,n2,d2)
+
+    #uso de desiciones con combo
+    if self.cmbOpciones.get() == self.opciones[4]:
+    #uso de desiciones con radio boton solo lo remplazamos en cada uno de los if  y elif
+    #if self.operacion.get() == 4:
+        if f1 == f2:
+            messagebox.showinfo(title="Fracciones Mixtas", message="las Fracciones son iguales")
+        else:
+            messagebox.showinfo(title="Fracciones Mixtas", message="las Fracciones no son iguales")
+    else:     
+        if self.cmbOpciones.get() == self.opciones[0]:
+        #if self.operacion.get() == 0:
+            f3 = f1+f2
+        elif self.cmbOpciones.get() == self.opciones[1]:
+        #elif self.operacion.get() == 1:
+            f3 = f1-f2
+        elif self.cmbOpciones.get() == self.opciones[2]:
+        #elif self.operacion.get() == 2:
+            f3 = f1*f2
+        elif self.cmbOpciones.get() == self.opciones[3]:
+        #elif self.operacion.get() == 3:
+            f3 = f1/f2
+        
+        #Imprimir el inicie de la lista y el texto que se tiene en el la lista con ese indice
+        #print(self.cmbOpciones.current())
+        #print(self.cmbOpciones.get())
+        
+        #esto borra las lineas de texto en el entry, pero no funciona en un text area
+        self.txtRes.delete(0,"end")
+        self.txtRes.insert(0,f3)
+        
+        #borra en text area
+        #self.txtRes.delete(1.0,"end")
+        #self.txtRes.insert(1.0,f3)
+    
 def Fracciones(self):
     texto = tk.Label(self.AreaTrabajo, text="Fracciones", font = ("Arial", 35, "bold"), bg="light grey")
     texto.pack(side=tk.TOP, fill="x", expand=True)
@@ -90,5 +137,5 @@ def Fracciones(self):
     borderlineal.pack(side=tk.BOTTOM)
     
     #Boton para hacer las operaciones
-    self.btnCalcular = tk.Button(borderlineal, text="Calcular", font = ("Arial", 25))#, command = self.fCalcular)
+    self.btnCalcular = tk.Button(borderlineal, text="Calcular", font = ("Arial", 25), command = lambda: [fCalcular(self)])
     self.btnCalcular.pack()
