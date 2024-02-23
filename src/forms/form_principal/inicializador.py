@@ -124,22 +124,18 @@ class FormPrincipal(tk.Tk):
     def triang(self):
         self.limpiarPanel(self.AreaTrabajo)
         figurasGeometricas(self,1)
-        panel_Constuccion(self)
     
     def rectan(self):
         self.limpiarPanel(self.AreaTrabajo)
         figurasGeometricas(self,2)
-        panel_Constuccion(self)
     
     def circ(self):
         self.limpiarPanel(self.AreaTrabajo)
         figurasGeometricas(self,3)
-        panel_Constuccion(self)
     
     def paralelo(self):
         self.limpiarPanel(self.AreaTrabajo)
         figurasGeometricas(self,4)
-        panel_Constuccion(self)
     
     def red(self):
         """Funcion para limpiar el panel y llamar la funcion asignada en el arera de trabajo desde el script de area de trabajo"""
