@@ -72,12 +72,12 @@ def biseccion(frmps, sem, sem2, sem3,fun1,fun2,fun3,fun4, a, b, a2, b2, a3, b3 )
                         
         i = i+1  
         print ("termino ",i)    
-    x1 = tkinter.Label(frmps, text = " i = cantidad de iteraciones ", font=('Arial',13,'bold'), bg=colorbg).place(x = 490, y = 370)
-    raiz = tkinter.Label(frmps, text = "Raiz 1  = ", font=('Arial',13,'bold'), bg=colorbg).place(x = 420, y = 415)
-    x1 = tkinter.Label(frmps, text = "x", font=('Arial',13,'bold'), bg=colorbg).place(x = 490, y = 415)
-    x2 = tkinter.Label(frmps, text = i, font=('Arial',13,'bold'), bg=colorbg).place(x = 510, y = 415)
-    x1 = tkinter.Label(frmps, text = " i = ", font=('Arial',13,'bold'), bg=colorbg).place(x = 530, y = 415)
-    traiz = tkinter.Label(frmps, text = sem12, font=('Arial',13,'bold'), bg=colorbg).place(x = 560, y = 415)
+    x1 = tkinter.Label(frmps, text = " i = cantidad de iteraciones ", font=('Arial',13,'bold'), bg="light grey").place(x = 490, y = 370)
+    raiz = tkinter.Label(frmps, text = "Raiz 1  = ", font=('Arial',13,'bold'), bg="light grey").place(x = 420, y = 415)
+    x1 = tkinter.Label(frmps, text = "x", font=('Arial',13,'bold'), bg="light grey").place(x = 490, y = 415)
+    x2 = tkinter.Label(frmps, text = i, font=('Arial',13,'bold'), bg="light grey").place(x = 510, y = 415)
+    x1 = tkinter.Label(frmps, text = " i = ", font=('Arial',13,'bold'), bg="light grey").place(x = 530, y = 415)
+    traiz = tkinter.Label(frmps, text = sem12, font=('Arial',13,'bold'), bg="light grey").place(x = 560, y = 415)
     print("termino la primera raiz \n")
     sem12 = 0
     apri = 0
@@ -128,11 +128,11 @@ def biseccion(frmps, sem, sem2, sem3,fun1,fun2,fun3,fun4, a, b, a2, b2, a3, b3 )
         i = i+1  
         print ("termino ",i)    
               
-    raiz = tkinter.Label(frmps, text = "Raiz 2 = ", font=('Arial',13,'bold'), bg=colorbg).place(x = 420, y = 440)
-    x1 = tkinter.Label(frmps, text = "x", font=('Arial',13,'bold'), bg=colorbg).place(x = 490, y = 440)
-    x2 = tkinter.Label(frmps, text = i, font=('Arial',13,'bold'), bg=colorbg).place(x = 510, y = 440)
-    x1 = tkinter.Label(frmps, text = " i = ", font=('Arial',13,'bold'), bg=colorbg).place(x = 530, y = 440)
-    traiz = tkinter.Label(frmps, text = sem22, font=('Arial',13,'bold'), bg=colorbg).place(x = 560, y = 440)
+    raiz = tkinter.Label(frmps, text = "Raiz 2 = ", font=('Arial',13,'bold'), bg="light grey").place(x = 420, y = 440)
+    x1 = tkinter.Label(frmps, text = "x", font=('Arial',13,'bold'), bg="light grey").place(x = 490, y = 440)
+    x2 = tkinter.Label(frmps, text = i, font=('Arial',13,'bold'), bg="light grey").place(x = 510, y = 440)
+    x1 = tkinter.Label(frmps, text = " i = ", font=('Arial',13,'bold'), bg="light grey").place(x = 530, y = 440)
+    traiz = tkinter.Label(frmps, text = sem22, font=('Arial',13,'bold'), bg="light grey").place(x = 560, y = 440)
     print("termino la segunda raiz \n")
     sem22 = 0
     apri2 = 0
@@ -183,11 +183,11 @@ def biseccion(frmps, sem, sem2, sem3,fun1,fun2,fun3,fun4, a, b, a2, b2, a3, b3 )
         i = i+1  
         print ("termino ",i)    
               
-    raiz = tkinter.Label(frmps, text = "Raiz 3 = ", font=('Arial',13,'bold'), bg=colorbg).place(x = 420, y = 465)
-    x1 = tkinter.Label(frmps, text = "x", font=('Arial',13,'bold'), bg=colorbg).place(x = 490, y = 465)
-    x2 = tkinter.Label(frmps, text = i, font=('Arial',13,'bold'), bg=colorbg).place(x = 510, y = 465)
-    x1 = tkinter.Label(frmps, text = " i = ", font=('Arial',13,'bold'), bg=colorbg).place(x = 530, y = 465)
-    traiz = tkinter.Label(frmps, text = sem32, font=('Arial',13,'bold'), bg=colorbg).place(x = 560, y = 465)
+    raiz = tkinter.Label(frmps, text = "Raiz 3 = ", font=('Arial',13,'bold'), bg="light grey").place(x = 420, y = 465)
+    x1 = tkinter.Label(frmps, text = "x", font=('Arial',13,'bold'), bg="light grey").place(x = 490, y = 465)
+    x2 = tkinter.Label(frmps, text = i, font=('Arial',13,'bold'), bg="light grey").place(x = 510, y = 465)
+    x1 = tkinter.Label(frmps, text = " i = ", font=('Arial',13,'bold'), bg="light grey").place(x = 530, y = 465)
+    traiz = tkinter.Label(frmps, text = sem32, font=('Arial',13,'bold'), bg="light grey").place(x = 560, y = 465)
     print("termino la tercera raiz \n")
     sem32 = 0
     apri3 = 0
@@ -195,7 +195,7 @@ def biseccion(frmps, sem, sem2, sem3,fun1,fun2,fun3,fun4, a, b, a2, b2, a3, b3 )
     i=0
     raiz3=0
     
-    msg = tkinter.Label(frmps, text = " Presición de 0.000000000000001 ", font=('Arial',13,'bold'), bg=colorbg).place(x = 470, y = 500)
+    msg = tkinter.Label(frmps, text = " Presición de 0.000000000000001 ", font=('Arial',13,'bold'), bg="light grey").place(x = 470, y = 500)
 
 def calcularsem(fun1, x, fun2, fun3, fun4, r1, r2, r3, r4, r5, r6):
     """" funcion para calcular todos los valores en x"""
@@ -299,37 +299,37 @@ def graficasem(frmps, fun1,fun2,fun3,fun4, r1, r2, r3, r4, r5, r6):
     l22.configure(state = 'normal')
     l22.insert(0, g1)
     l22.configure(state = 'disabled')
-    l22.place(x = 90, y = 220, width=70, height = 70)
+    l22.place(x = 40, y = 220, width=70, height = 70)
     
     l23 = tkinter.Entry(frmps, state="readonly", borderwidth=3, fg='blue', font=('Arial',16,'bold'))
     l23.configure(state = 'normal')
     l23.insert(0, g2)
     l23.configure(state = 'disabled')
-    l23.place(x = 160, y = 220, width=70, height = 70)
+    l23.place(x = 110, y = 220, width=70, height = 70)
     
     l24 = tkinter.Entry(frmps, state="readonly", borderwidth=3, fg='blue', font=('Arial',16,'bold'))
     l24.configure(state = 'normal')
     l24.insert(0, g3)
     l24.configure(state = 'disabled')
-    l24.place(x = 230, y = 220, width=70, height = 70)
+    l24.place(x = 180, y = 220, width=70, height = 70)
     
     l25 = tkinter.Entry(frmps, state="readonly", borderwidth=3, fg='blue', font=('Arial',16,'bold'))
     l25.configure(state = 'normal')
     l25.insert(0, g4)
     l25.configure(state = 'disabled')
-    l25.place(x = 300, y = 220, width=70, height = 70)
+    l25.place(x = 250, y = 220, width=70, height = 70)
     
     l26 = tkinter.Entry(frmps, state="readonly", borderwidth=3, fg='blue', font=('Arial',16,'bold'))
     l26.configure(state = 'normal')
     l26.insert(0, g5)
     l26.configure(state = 'disabled')
-    l26.place(x = 370, y = 220, width=70, height = 70)
+    l26.place(x = 320, y = 220, width=70, height = 70)
     
     l27 = tkinter.Entry(frmps, state="readonly", borderwidth=3, fg='blue', font=('Arial',16,'bold')) 
     l27.configure(state = 'normal')
     l27.insert(0, g6)
     l27.configure(state = 'disabled')
-    l27.place(x = 440, y = 220, width=70, height = 70)
+    l27.place(x = 390, y = 220, width=70, height = 70)
     
     if (g1 < 0  and g2 >= 0) or (g1 > 0  and g2 <= 0):
         cseml = cseml + 1
@@ -392,34 +392,34 @@ def graficasem(frmps, fun1,fun2,fun3,fun4, r1, r2, r3, r4, r5, r6):
             b3 = r2        
         
 #if cseml == 1 or cseml == 2 or cseml == 3:
-    ta1 = tkinter.Label(frmps, text = "a = ", font=('Arial',13,'bold'), bg=colorbg).place(x = 10, y = 430)
-    la1 = tkinter.Label(frmps, text = a, font=('Arial',13,'bold'), bg=colorbg).place(x = 40, y = 430)
-    tb1 = tkinter.Label(frmps, text = "b = ", font=('Arial',13,'bold'), bg=colorbg).place(x = 80, y = 430)
-    lb1 = tkinter.Label(frmps, text = b,  font=('Arial',13,'bold'), bg=colorbg).place(x = 110, y = 430)
+    ta1 = tkinter.Label(frmps, text = "a = ", font=('Arial',13,'bold'), bg="light grey").place(x = 10, y = 430)
+    la1 = tkinter.Label(frmps, text = a, font=('Arial',13,'bold'), bg="light grey").place(x = 40, y = 430)
+    tb1 = tkinter.Label(frmps, text = "b = ", font=('Arial',13,'bold'), bg="light grey").place(x = 80, y = 430)
+    lb1 = tkinter.Label(frmps, text = b,  font=('Arial',13,'bold'), bg="light grey").place(x = 110, y = 430)
     
     sem = (a + b)/2
-    sem11 = tkinter.Label(frmps, text = "Semilla 1 = ", font=('Arial',13,'bold'), bg=colorbg).place(x = 10, y = 460)
-    tsem1 = tkinter.Label(frmps, text = sem, font=('Arial',13,'bold'), bg=colorbg).place(x = 100, y = 460)
+    sem11 = tkinter.Label(frmps, text = "Semilla 1 = ", font=('Arial',13,'bold'), bg="light grey").place(x = 10, y = 460)
+    tsem1 = tkinter.Label(frmps, text = sem, font=('Arial',13,'bold'), bg="light grey").place(x = 100, y = 460)
     
 #if cseml == 2 or cseml == 3:
-    ta2 = tkinter.Label(frmps, text = "a = ", font=('Arial',13,'bold'), bg=colorbg).place(x = 140, y = 430)
-    la2 = tkinter.Label(frmps, text = a2, font=('Arial',13,'bold'), bg=colorbg).place(x = 170, y = 430)
-    tb2 = tkinter.Label(frmps, text = "b = ", font=('Arial',13,'bold'), bg=colorbg).place(x = 200, y = 430)
-    lb2 = tkinter.Label(frmps, text = b2,  font=('Arial',13,'bold'), bg=colorbg).place(x = 230, y = 430)
+    ta2 = tkinter.Label(frmps, text = "a = ", font=('Arial',13,'bold'), bg="light grey").place(x = 140, y = 430)
+    la2 = tkinter.Label(frmps, text = a2, font=('Arial',13,'bold'), bg="light grey").place(x = 170, y = 430)
+    tb2 = tkinter.Label(frmps, text = "b = ", font=('Arial',13,'bold'), bg="light grey").place(x = 200, y = 430)
+    lb2 = tkinter.Label(frmps, text = b2,  font=('Arial',13,'bold'), bg="light grey").place(x = 230, y = 430)
     
     sem2 = (a2 + b2)/2
-    sem12 = tkinter.Label(frmps, text = "Semilla 2 = ", font=('Arial',13,'bold'), bg=colorbg).place(x = 140, y = 460)
-    tsem2 = tkinter.Label(frmps, text = sem2, font=('Arial',13,'bold'), bg=colorbg).place(x = 230, y = 460)
+    sem12 = tkinter.Label(frmps, text = "Semilla 2 = ", font=('Arial',13,'bold'), bg="light grey").place(x = 140, y = 460)
+    tsem2 = tkinter.Label(frmps, text = sem2, font=('Arial',13,'bold'), bg="light grey").place(x = 230, y = 460)
     
 #if cseml == 3:
-    ta3 = tkinter.Label(frmps, text = "a = ", font=('Arial',13,'bold'), bg=colorbg).place(x = 270, y = 430)
-    la3 = tkinter.Label(frmps, text = a3, font=('Arial',13,'bold'), bg=colorbg).place(x = 300, y = 430)
-    tb3 = tkinter.Label(frmps, text = "b = ", font=('Arial',13,'bold'), bg=colorbg).place(x = 340, y = 430)
-    lb3 = tkinter.Label(frmps, text = b3,  font=('Arial',13,'bold'), bg=colorbg).place(x = 370, y = 430)
+    ta3 = tkinter.Label(frmps, text = "a = ", font=('Arial',13,'bold'), bg="light grey").place(x = 270, y = 430)
+    la3 = tkinter.Label(frmps, text = a3, font=('Arial',13,'bold'), bg="light grey").place(x = 300, y = 430)
+    tb3 = tkinter.Label(frmps, text = "b = ", font=('Arial',13,'bold'), bg="light grey").place(x = 340, y = 430)
+    lb3 = tkinter.Label(frmps, text = b3,  font=('Arial',13,'bold'), bg="light grey").place(x = 370, y = 430)
     
     sem3 = (a3 + b3)/2
-    sem13 = tkinter.Label(frmps, text = "Semilla 3 = ", font=('Arial',13,'bold'), bg=colorbg).place(x = 270, y = 460)
-    tsem3 = tkinter.Label(frmps, text = sem3, font=('Arial',13,'bold'), bg=colorbg).place(x = 360, y = 460)
+    sem13 = tkinter.Label(frmps, text = "Semilla 3 = ", font=('Arial',13,'bold'), bg="light grey").place(x = 270, y = 460)
+    tsem3 = tkinter.Label(frmps, text = sem3, font=('Arial',13,'bold'), bg="light grey").place(x = 360, y = 460)
     
     biseccion(frmps, sem, sem2, sem3,fun1,fun2,fun3,fun4, a, b, a2, b2, a3, b3)
 
