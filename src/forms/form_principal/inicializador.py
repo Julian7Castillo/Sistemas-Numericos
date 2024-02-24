@@ -26,7 +26,7 @@ class FormPrincipal(tk.Tk):
         self.img_Triangulo = utl.leer_imagen("./src/img/Triangulo.png", (200, 200))
         self.img_Rectangulo = utl.leer_imagen("./src/img/Rectangulo.png", (200, 200))
         self.img_Circulo = utl.leer_imagen("./src/img/Circulo.png", (200, 200))
-        self.img_Paralelogramo = utl.leer_imagen("./src/img/Paralelogramo.png", (200, 200))
+        self.img_Trapecio = utl.leer_imagen("./src/img/Trapecio.png", (200, 200))
         
         #variable de tema
         self.vteme = "Claro"
@@ -133,7 +133,7 @@ class FormPrincipal(tk.Tk):
         self.limpiarPanel(self.AreaTrabajo)
         figurasGeometricas(self,3)
     
-    def paralelo(self):
+    def trapecio(self):
         self.limpiarPanel(self.AreaTrabajo)
         figurasGeometricas(self,4)
     
@@ -191,7 +191,6 @@ class FormPrincipal(tk.Tk):
         """Funcion para limpiar el panel y llamar la funcion asignada en el arera de trabajo desde el script de area de trabajo"""
         self.limpiarPanel(self.AreaTrabajo)
         conversionNumerica(self)
-        panel_Constuccion(self)
         
     def opci(self):
         """Funcion para limpiar el panel y llamar la funcion asignada en el arera de trabajo desde el script de area de trabajo"""

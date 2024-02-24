@@ -104,7 +104,7 @@ def menufiguras(self):
     self.borTriangulo = tk.LabelFrame(self.menu)
     self.borRectangulo = tk.LabelFrame(self.menu)
     self.borCirculo = tk.LabelFrame(self.menu)
-    self.borParalelogramo = tk.LabelFrame(self.menu)
+    self.borTrapecio = tk.LabelFrame(self.menu)
     self.bordeVol = tk.LabelFrame(self.menu)
     
     #Creacion de los botones
@@ -112,7 +112,7 @@ def menufiguras(self):
     self.botTriangulo = tk.Button(self.borTriangulo)
     self.botRectangulo = tk.Button(self.borRectangulo)
     self.botCirculo = tk.Button(self.borCirculo)
-    self.botParalelogramo = tk.Button(self.borParalelogramo)
+    self.botTrapecio = tk.Button(self.borTrapecio)
     self.volver = tk.Button(self.bordeVol)
     
     #informacion de los botones
@@ -121,7 +121,7 @@ def menufiguras(self):
         (self.borTriangulo, " 2)  Triangulo ", self.botTriangulo, self.triang),
         (self.borRectangulo, " 3)  Rectangulo ", self.botRectangulo, self.rectan),
         (self.borCirculo, " 4)  Circulo ", self.botCirculo, self.circ),
-        (self.borParalelogramo, " 5)  Paralelogramo ", self.botParalelogramo, self.paralelo),
+        (self.borTrapecio, " 5)  Trapecio ", self.botTrapecio, self.trapecio),
         (self.bordeVol, " 6)  Volver ",self.volver, self.volvermenup)
     ]
     

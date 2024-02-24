@@ -82,10 +82,16 @@ def figurasGeometricas(self, figura):
     
     elif(figura == 3):
         vfigura ="Circulo"
-        varea = "Area = "
-        vperimetro = "Perimetro = "
+        varea = "Area = pi * r**2 "
+        vperimetro = "Perimetro = pi * d "
         
         #configuracion de la figura
+        l1 = tk.Entry(fig, font = ("Arial", 20, "bold"), width=3)
+        l1.grid(column=0, row=0)
+        
+        l = tk.Label(fig, height=2, bg="light grey")
+        l.grid(column=0, row=1)
+        
         imgfig = tk.Label(fig, image = self.img_Circulo, padx=50, pady=50)  
         imgfig.grid(column=0, row=2)
         
@@ -96,18 +102,18 @@ def figurasGeometricas(self, figura):
         l2.grid(column=2, row=2)
     
     elif(figura == 4):
-        vfigura ="Paralelogramo"
-        varea = "Area = "
-        vperimetro = "Perimetro = "
+        vfigura ="Trapecio"
+        varea = "Area = (h(B + b)) / 2"
+        vperimetro = "Perimetro = B + b + h + h"
         
         #configuracion de la figura
         l1 = tk.Entry(fig, font = ("Arial", 20, "bold"), width=3)
         l1.grid(column=0, row=0)
         
-        l = tk.Label(fig, height=2, bg="light grey")
+        l = tk.Label(fig, height=1, bg="light grey")
         l.grid(column=0, row=1)
         
-        imgfig = tk.Label(fig, image = self.img_Paralelogramo, padx=50, pady=50)  
+        imgfig = tk.Label(fig, image = self.img_Trapecio, padx=50, pady=50)  
         imgfig.grid(column=0, row=2)
         
         l = tk.Label(fig, width=3, bg="light grey")
@@ -115,6 +121,12 @@ def figurasGeometricas(self, figura):
         
         l2 = tk.Entry(fig, font = ("Arial", 20, "bold"), width=3)   
         l2.grid(column=2, row=2)
+        
+        l = tk.Label(fig, width=1, bg="light grey")
+        l.grid(column=1, row=3)
+        
+        l2 = tk.Entry(fig, font = ("Arial", 20, "bold"), width=3)   
+        l2.grid(column=0, row=4)
 
     #texto de la figura 
     texfig = tk.Label(dat, text=vfigura, font = ("Arial", 20, "bold"), bg="light grey")
@@ -147,7 +159,7 @@ def figurasGeometricas(self, figura):
     r2 =tk.Entry(per, font = ("Arial", 20, "bold"))
     r2.pack(side=tk.RIGHT)
     
-    l = tk.Label(fig, height=3, bg="light grey")
+    l = tk.Label(fig, height=1, bg="light grey")
     l.grid(column=0, row=5)
     
     #borde del boton 1
