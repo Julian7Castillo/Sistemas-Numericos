@@ -129,7 +129,7 @@ def Fracciones(self):
     tk.Label(ff2, text="Resultado: ", font = ("Arial", 25), bg="light grey").pack(side=tk.LEFT)
     
     #campo de texto para el resultado
-    self.txtRes = tk.Entry(ff2, width=9, font = ("Arial", 25))
+    self.txtRes = tk.Entry(ff2, width=9, font = ("Arial", 25), state="readonly")
     self.txtRes.pack(side=tk.RIGHT, expand=True)
 
     #borde del boton

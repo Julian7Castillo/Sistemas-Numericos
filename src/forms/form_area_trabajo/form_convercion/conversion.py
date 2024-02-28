@@ -35,7 +35,7 @@ def conversionNumerica(self):
     tn1 = tk.Label(fres, text="Resultado: ", font = ("Arial", 35, "bold"), bg="light grey")
     tn1.pack(side=tk.LEFT, expand=True)
     
-    resultado = tk.Entry(fres, font = ("Arial", 25, "bold"))
+    resultado = tk.Entry(fres, font = ("Arial", 25, "bold"), state="readonly")
     resultado.pack(side=tk.RIGHT, expand=True)
     
     #borde del boton 1

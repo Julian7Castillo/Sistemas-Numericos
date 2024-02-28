@@ -23,13 +23,13 @@ def errorabcoluto(self):
     f3 = tk.Frame(self.AreaTrabajo, bg = "light gray")
     f3.pack(side=tk.TOP, expand=True)
     tk.Label(f3, text="Error Absoluto: ", font= ("Arial", 25, "bold"), justify="center", bg="light gray").pack(side=tk.LEFT, expand=True)
-    errAb = tk.Entry(f3, font= ("Arial", 25))
+    errAb = tk.Entry(f3, font= ("Arial", 25), state="readonly")
     errAb.pack(side=tk.RIGHT, expand=True)
     
     f4 = tk.Frame(self.AreaTrabajo, bg = "light gray")
     f4.pack(side=tk.TOP, expand=True)
     tk.Label(f4, text="Error Relativo: ", font= ("Arial", 25, "bold"), justify="center", bg="light gray").pack(side=tk.LEFT, expand=True)
-    errRl = tk.Entry(f4, font= ("Arial", 25))
+    errRl = tk.Entry(f4, font= ("Arial", 25), state="readonly")
     errRl.pack(side=tk.RIGHT, expand=True)
     
     borderlineal = tk.LabelFrame(self.AreaTrabajo, bd = 6, bg = "DodgerBlue2")
