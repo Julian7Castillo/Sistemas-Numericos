@@ -22,7 +22,7 @@ class FormPrincipal(tk.Tk):
         
         #imagenes necesaria precargadas
         self.img_sitio_construccion = utl.leer_imagen("./src/img/sitio_construccion.png", (200, 200))
-        self.img_Cuadrado = utl.leer_imagen("./src/img/cuadrado.png", (200, 200))
+        self.img_Cuadrado = utl.leer_imagen("./src/img/Cuadrado.png", (200, 200))
         self.img_Triangulo = utl.leer_imagen("./src/img/Triangulo.png", (200, 200))
         self.img_Rectangulo = utl.leer_imagen("./src/img/Rectangulo.png", (200, 200))
         self.img_Circulo = utl.leer_imagen("./src/img/Circulo.png", (200, 200))
