@@ -148,7 +148,7 @@ def figurasGeometricas(self, figura):
     
     texfig = tk.Label(ar, text="Area:", font = ("Arial", 20, "bold"), bg="light grey")
     texfig.pack(side=tk.LEFT, fill="both", expand=True)
-    r1 =tk.Entry(ar, font = ("Arial", 20, "bold"))
+    r1 =tk.Entry(ar, font = ("Arial", 20, "bold"), state="readonly")
     r1.pack(side=tk.RIGHT)
     
     per = tk.Frame(dat, bg="light grey")
@@ -156,7 +156,7 @@ def figurasGeometricas(self, figura):
     
     texfig = tk.Label(per, text="Perimetro:", font = ("Arial", 20, "bold"), bg="light grey")
     texfig.pack(side=tk.LEFT, fill="both", expand=True)
-    r2 =tk.Entry(per, font = ("Arial", 20, "bold"))
+    r2 =tk.Entry(per, font = ("Arial", 20, "bold"), state="readonly")
     r2.pack(side=tk.RIGHT)
     
     l = tk.Label(fig, height=1, bg="light grey")
