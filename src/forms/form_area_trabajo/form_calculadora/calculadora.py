@@ -12,7 +12,7 @@ def CalculadoraPanel(self):
     
     #configurtacion de interfaz
     #etiqueta para mostrar la operacion solicitada
-    self.operation_label = tk.Label(place, text="", font=('Arial', 16), fg=cons.COLOR_DE_TEXTO_DARK, justify='right')
+    self.operation_label = tk.Label(place, text="",bg="light grey", font=('Arial', 16), fg=cons.COLOR_DE_TEXTO_DARK, justify='right')
     self.operation_label.grid(row=0, column=3, padx=10, pady=10)
 
     #pantalla de operacion
@@ -50,13 +50,13 @@ def CalculadoraPanel(self):
         #ajuste para el boton de '=' abarqeu dos columnas en una fila 
         if button  == '=':
             tk.Button(place, text=button, width=11, height=2, 
-                        command=lambda b=button:on_button_click(b), bg=color_fondo, fg=cons.COLOR_DE_TEXTO_DARK, relief=tk.FLAT, font=button_font, padx=5, pady=5, overrelief='flat').grid(row=row_val, column=col_val, columnspan=2, pady=5)
+                        command=lambda bar=button: on_button_click(self, bar), bg=color_fondo, fg=cons.COLOR_DE_TEXTO_DARK, relief=tk.FLAT, font=button_font, padx=5, pady=5, overrelief='flat').grid(row=row_val, column=col_val, columnspan=2, pady=5)
 
             col_val += 1
         
         else:
             tk.Button(place, text=button, width=5, height=2,
-                        command=lambda b=button: on_button_click(b), bg=color_fondo, fg=cons.COLOR_DE_TEXTO_DARK, relief=tk.FLAT, font=button_font, padx=5, pady=5, bd=0, borderwidth=0, highlightthickness=0, overrelief='flat').grid(row=row_val, column=col_val, pady=5)
+                        command=lambda bar=button: on_button_click(self, bar), bg=color_fondo, fg=cons.COLOR_DE_TEXTO_DARK, relief=tk.FLAT, font=button_font, padx=5, pady=5, bd=0, borderwidth=0, highlightthickness=0, overrelief='flat').grid(row=row_val, column=col_val, pady=5)
 
             col_val += 1
 
