@@ -105,7 +105,6 @@ class FormPrincipal(tk.Tk):
         """Funcion para limpiar el panel y llamar la funcion asignada en el arera de trabajo desde el script de area de trabajo"""
         self.limpiarPanel(self.AreaTrabajo)
         CalculadoraPanel(self)
-        panel_Constuccion(self)
     
     def fra(self):
         """Funcion para limpiar el panel y llamar la funcion asignada en el arera de trabajo desde el script de area de trabajo"""
