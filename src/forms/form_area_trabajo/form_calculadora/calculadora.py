@@ -5,15 +5,15 @@ from config import constants as cons
 
 def CalculadoraPanel(self):
     texto = tk.Label(self.AreaTrabajo, text="Calculadora", font = ("Arial", 35, "bold"), bg="light grey")
-    texto.pack(side=tk.TOP, fill="x", expand=True)
+    texto.pack(side=tk.TOP)
     
     place = tk.Frame(self.AreaTrabajo, bg="light grey")
-    place.pack(side=tk.TOP, fill="both", expand=True)
+    place.pack(side=tk.TOP)
     
     #configurtacion de interfaz
     #etiqueta para mostrar la operacion solicitada
-    self.operation_label = tk.Label(place, text="",bg="light grey", font=('Arial', 16), fg=cons.COLOR_DE_TEXTO_DARK, justify='right')
-    self.operation_label.grid(row=0, column=3, padx=10, pady=10)
+    self.operation_label = tk.Label(place, text="",bg="light grey", font=('Arial', 16), fg=cons.COLOR_DE_TEXTO_LIGHT, justify='right')
+    self.operation_label.grid(row=0, column=3, padx=10, pady=5)
 
     #pantalla de operacion
     self.entry = tk.Entry(place, width=12, font=('Arial', 40), bd=0, fg=cons.COLOR_DE_TEXTO_DARK, bg=cons.COLOR_CAJA_TEXTO_DARK, justify='right')
