@@ -74,7 +74,7 @@ class FormPrincipal(tk.Tk):
         self.canvmenu.create_window((0,0), window = self.menu, anchor="nw")
         
         #CReacion del panel del area de trabajo
-        self.AreaTrabajo = tk.Frame(self, bg="light grey", width=780, padx=10, pady=20)
+        self.AreaTrabajo = tk.Frame(self, bg="light grey", width=780, padx=10, pady=10)
         self.AreaTrabajo.pack(side=tk.RIGHT, fill="both", expand=True)
 
     def toggle_panel(self):
