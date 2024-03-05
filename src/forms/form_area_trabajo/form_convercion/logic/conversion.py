@@ -35,6 +35,9 @@ def calConversion(sisInicial, n, sisFinal):
         elif(sisFinal == "Haxadecimal"):
             r = hex(n)
             return r
+        else:
+            print("Digite un sistema nuemrtico diferente")
+        
             
     #si el sistenma inicial es decimal
     elif(sisInicial == "Decimal"):
@@ -49,6 +52,9 @@ def calConversion(sisInicial, n, sisFinal):
         elif(sisFinal == "Haxadecimal"):
             r = hex(n)
             return r
+        else:
+            print("Digite un sistema nuemrtico diferente")
+        
             
     #si el sistenma inicial es hexadecimal
     elif(sisInicial == "Haxadecimal"):
@@ -63,5 +69,8 @@ def calConversion(sisInicial, n, sisFinal):
         elif(sisFinal == "Decimal"):
             r = int(n, 16)
             return r
+        else:
+            print("Digite un sistema nuemrtico diferente")
+        
     # bandera de valor resultante 
-    print(r)
+    #print(r)
