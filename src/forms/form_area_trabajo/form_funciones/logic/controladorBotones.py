@@ -3,7 +3,7 @@ from tkinter import ttk
 import tkinter as tk
 
 #Importamos las las funciones del paquete graficas
-from src.util.funciones.graficas import grafica, graficasem
+from src.forms.form_area_trabajo.form_funciones.logic.graficas import grafica, graficasem
 
 def red(frmprt, x, dec):
     print(x)

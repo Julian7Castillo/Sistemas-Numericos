@@ -1,6 +1,11 @@
 #importamos librerias
 import tkinter as tk
 from tkinter.ttk import Combobox
+from src.forms.form_area_trabajo.form_convercion.logic.conversion import calConversion
+
+def comunicacion(sisInicial, n, sisFinal):
+    resultado = calConversion(sisInicial, n, sisFinal)
+    print(resultado)
 
 def conversionNumerica(self):
     texto = tk.Label(self.AreaTrabajo, text="Conversión numérica", font = ("Arial", 35, "bold"), bg="light grey")
@@ -8,9 +13,9 @@ def conversionNumerica(self):
     
     #combobox
     self.opciones = ["Binario","Octal","Decimal","Haxadecimal"]
-    self.cmbOpciones = Combobox(self.AreaTrabajo, width="8", value=self.opciones, state="readonly", font = ("Arial", 25))
-    self.cmbOpciones.pack(side=tk.TOP, expand=True)
-    self.cmbOpciones.current(0)
+    self.cmbOpciones1 = Combobox(self.AreaTrabajo, width="8", value=self.opciones, state="readonly", font = ("Arial", 25))
+    self.cmbOpciones1.pack(side=tk.TOP, expand=True)
+    self.cmbOpciones1.current(0)
     
     #frame para unir texto y entrada del valor
     fnum = tk.Frame(self.AreaTrabajo, bg="light grey")
@@ -24,9 +29,9 @@ def conversionNumerica(self):
 
     #Combo box 
     self.opciones = ["Binario","Octal","Decimal","Haxadecimal"]
-    self.cmbOpciones = Combobox(self.AreaTrabajo, width="8", value=self.opciones, state="readonly", font = ("Arial", 25))
-    self.cmbOpciones.pack(side=tk.TOP, expand=True)
-    self.cmbOpciones.current(0)
+    self.cmbOpciones2 = Combobox(self.AreaTrabajo, width="8", value=self.opciones, state="readonly", font = ("Arial", 25))
+    self.cmbOpciones2.pack(side=tk.TOP, expand=True)
+    self.cmbOpciones2.current(0)
     
     #frame para unir texto y entrada del valor
     fres = tk.Frame(self.AreaTrabajo, bg="light grey")
@@ -41,5 +46,5 @@ def conversionNumerica(self):
     #borde del boton 1
     borderlineal = tk.LabelFrame(self.AreaTrabajo, bd = 6, bg = "DodgerBlue2")
     borderlineal.pack(side=tk.TOP, expand=True)
-    calcular = tk.Button(borderlineal, text="Calcular", width=15, font = ("Arial", 15, "bold") )
+    calcular = tk.Button(borderlineal, text="Calcular", width=15, font = ("Arial", 15, "bold"), command=lambda: [comunicacion(self.cmbOpciones1.get(), entrada.get(), self.cmbOpciones2.get())] )
     calcular.pack()
