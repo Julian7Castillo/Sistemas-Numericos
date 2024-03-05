@@ -1,4 +1,4 @@
-from src.util.fracciones.ClaseFraccines import Fraccion
+from src.forms.form_area_trabajo.form_Fracciones.logic.ClaseFraccines import Fraccion
 
 class FracMix(Fraccion):
 

@@ -1,6 +1,6 @@
 #importamos librerias
 import tkinter as tk
-from src.util.funciones.controladorBotones import red, error, fsemilla, veri
+from src.forms.form_area_trabajo.form_funciones.logic.controladorBotones import red, error, fsemilla, veri
 
 def general(self, tip):
     """Funcion se seleccion de tipo de funcion a mostrar por pantalla en el area de trabajo"""

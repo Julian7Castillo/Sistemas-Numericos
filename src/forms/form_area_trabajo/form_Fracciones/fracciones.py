@@ -1,7 +1,7 @@
 import tkinter as tk
 from tkinter import messagebox
 from tkinter.ttk import Combobox
-from src.util.fracciones.ClaseFraccionesMixtas import FracMix
+from src.forms.form_area_trabajo.form_Fracciones.logic.ClaseFraccionesMixtas import FracMix
 
 def fCalcular(self):
     e1 = int(self.txt1E.get())
