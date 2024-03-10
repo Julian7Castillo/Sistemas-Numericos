@@ -41,8 +41,10 @@ def fCalcular(self):
         #print(self.cmbOpciones.get())
         
         #esto borra las lineas de texto en el entry, pero no funciona en un text area
+        self.txtRes.configure(state = 'normal')
         self.txtRes.delete(0,"end")
         self.txtRes.insert(0,f3)
+        self.txtRes.configure(state = 'disabled')
         
         #borra en text area
         #self.txtRes.delete(1.0,"end")

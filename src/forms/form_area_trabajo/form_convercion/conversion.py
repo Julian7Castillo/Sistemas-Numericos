@@ -3,9 +3,11 @@ import tkinter as tk
 from tkinter.ttk import Combobox
 from src.forms.form_area_trabajo.form_convercion.logic.conversion import calConversion
 
-def comunicacion(sisInicial, n, sisFinal):
+def comunicacion(self, sisInicial, n, sisFinal):
     resultado = calConversion(sisInicial, n, sisFinal)
     print(resultado)
+    self.resultado.insert(0, resultado)
+    self.resultado.configure(state = 'disabled')
 
 def conversionNumerica(self):
     texto = tk.Label(self.AreaTrabajo, text="Conversión numérica", font = ("Arial", 35, "bold"), bg="light grey")
@@ -40,8 +42,8 @@ def conversionNumerica(self):
     tn1 = tk.Label(fres, text="Resultado: ", font = ("Arial", 35, "bold"), bg="light grey")
     tn1.pack(side=tk.LEFT, expand=True)
     
-    resultado = tk.Entry(fres, font = ("Arial", 25, "bold"), state="readonly")
-    resultado.pack(side=tk.RIGHT, expand=True)
+    self.resultado = tk.Entry(fres, font = ("Arial", 25, "bold"), state="readonly")
+    self.resultado.pack(side=tk.RIGHT, expand=True)
     
     #borde del boton 1
     borderlineal = tk.LabelFrame(self.AreaTrabajo, bd = 6, bg = "DodgerBlue2")
