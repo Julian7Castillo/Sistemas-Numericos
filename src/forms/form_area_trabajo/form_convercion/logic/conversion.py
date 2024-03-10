@@ -38,7 +38,6 @@ def calConversion(sisInicial, n, sisFinal):
         else:
             print("Digite un sistema nuemrtico diferente")
         
-            
     #si el sistenma inicial es decimal
     elif(sisInicial == "Decimal"):
         if(sisFinal == "Binario"):
@@ -55,7 +54,6 @@ def calConversion(sisInicial, n, sisFinal):
         else:
             print("Digite un sistema nuemrtico diferente")
         
-            
     #si el sistenma inicial es hexadecimal
     elif(sisInicial == "Haxadecimal"):
         if(sisFinal == "Binario"):
