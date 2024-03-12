@@ -1,5 +1,19 @@
 import tkinter as tk
+from src.forms.form_area_trabajo.form_figuras.logic.areaPerimetro import CalcularResultado
 
+def llamado(self, fig, l1, l2, l3=0):
+    area, perimetro = CalcularResultado(fig, l1, l2, l3)
+    
+    self.r1.configure(state = 'normal')
+    self.r1.txtRes.delete(0,"end")
+    self.r1.insert(0,area)
+    self.r1.configure(state = 'disabled')
+    
+    self.r2.configure(state = 'normal')
+    self.r2.txtRes.delete(0,"end")
+    self.r2.insert(0, perimetro)
+    self.r2.configure(state = 'disabled')
+    
 def figurasGeometricas(self, figura):
     texto = tk.Label(self.AreaTrabajo, text="Figuras geometricas", font = ("Arial", 30, "bold"), bg="light grey", pady=20)
     texto.pack(side=tk.TOP, fill="x")
@@ -15,6 +29,9 @@ def figurasGeometricas(self, figura):
     vfigura = ""
     varea = ""
     vperimetro = ""
+    
+    #Creacion predetermionada
+    l3 = tk.Entry(fig, font = ("Arial", 20, "bold"), width=3) 
     
     if(figura == 0):
 
@@ -124,9 +141,8 @@ def figurasGeometricas(self, figura):
         
         l = tk.Label(fig, width=1, bg="light grey")
         l.grid(column=1, row=3)
-        
-        l2 = tk.Entry(fig, font = ("Arial", 20, "bold"), width=3)   
-        l2.grid(column=0, row=4)
+          
+        l3.grid(column=0, row=4)
 
     #texto de la figura 
     texfig = tk.Label(dat, text=vfigura, font = ("Arial", 20, "bold"), bg="light grey")
@@ -148,16 +164,16 @@ def figurasGeometricas(self, figura):
     
     texfig = tk.Label(ar, text="Area:", font = ("Arial", 20, "bold"), bg="light grey")
     texfig.pack(side=tk.LEFT, fill="both", expand=True)
-    r1 =tk.Entry(ar, font = ("Arial", 20, "bold"), state="readonly")
-    r1.pack(side=tk.RIGHT)
+    self.r1 =tk.Entry(ar, font = ("Arial", 20, "bold"), state="readonly")
+    self.r1.pack(side=tk.RIGHT)
     
     per = tk.Frame(dat, bg="light grey")
     per.pack(side=tk.TOP, fill="both", expand=True)
     
     texfig = tk.Label(per, text="Perimetro:", font = ("Arial", 20, "bold"), bg="light grey")
     texfig.pack(side=tk.LEFT, fill="both", expand=True)
-    r2 =tk.Entry(per, font = ("Arial", 20, "bold"), state="readonly")
-    r2.pack(side=tk.RIGHT)
+    self.r2 =tk.Entry(per, font = ("Arial", 20, "bold"), state="readonly")
+    self.r2.pack(side=tk.RIGHT)
     
     l = tk.Label(fig, height=1, bg="light grey")
     l.grid(column=0, row=5)
@@ -165,5 +181,5 @@ def figurasGeometricas(self, figura):
     #borde del boton 1
     borderlineal = tk.LabelFrame(fig, bd = 6, bg = "DodgerBlue2")
     borderlineal.grid(column=0, row=6)
-    calcular = tk.Button(borderlineal, text="Calcular", width=15, font = ("Arial", 15, "bold") )
+    calcular = tk.Button(borderlineal, text="Calcular", width=15, font = ("Arial", 15, "bold"), command=lambda: [llamado(self, figura, l1.get(), l2.get(), l3.get())] )
     calcular.pack()
