@@ -1,16 +1,19 @@
 import tkinter as tk
 from src.forms.form_area_trabajo.form_figuras.logic.areaPerimetro import CalcularResultado
 
-def llamado(self, fig, l1, l2, l3=0):
-    area, perimetro = CalcularResultado(fig, l1, l2, l3)
+def llamado(self, fig):
+    l1 = int(self.l1.get())
+    l2 = int(self.l2.get())
+    #l3 = int(self.l3.get())
+    area, perimetro = CalcularResultado(self, fig, l1, l2)
     
     self.r1.configure(state = 'normal')
-    self.r1.txtRes.delete(0,"end")
+    self.r1.delete(0,"end")
     self.r1.insert(0,area)
     self.r1.configure(state = 'disabled')
     
     self.r2.configure(state = 'normal')
-    self.r2.txtRes.delete(0,"end")
+    self.r2.delete(0,"end")
     self.r2.insert(0, perimetro)
     self.r2.configure(state = 'disabled')
     
@@ -31,7 +34,9 @@ def figurasGeometricas(self, figura):
     vperimetro = ""
     
     #Creacion predetermionada
-    l3 = tk.Entry(fig, font = ("Arial", 20, "bold"), width=3) 
+    self.l1 = tk.Entry(fig, font = ("Arial", 20, "bold"), width=3)
+    self.l2 = tk.Entry(fig, font = ("Arial", 20, "bold"), width=3)
+    self.l3 = tk.Entry(fig, font = ("Arial", 20, "bold"), width=3) 
     
     if(figura == 0):
 
@@ -40,20 +45,18 @@ def figurasGeometricas(self, figura):
         vperimetro = "Perimetro = L1 + L2 + L3 + L4"
          
         #ajustes de ubicacion de la figura
-        l1 = tk.Entry(fig, font = ("Arial", 20, "bold"), width=3)
-        l1.grid(column=0, row=0)
+        self.l1.grid(column=0, row=0)
         
-        l = tk.Label(fig, height=2, bg="light grey")
-        l.grid(column=0, row=1)
+        self.l = tk.Label(fig, height=2, bg="light grey")
+        self.l.grid(column=0, row=1)
         
         imgfig = tk.Label(fig, image = self.img_Cuadrado, padx=50, pady=50)  
         imgfig.grid(column=0, row=2)  
         
-        l = tk.Label(fig, width=3, bg="light grey")
-        l.grid(column=1, row=2)
-        
-        l2 = tk.Entry(fig, font = ("Arial", 20, "bold"), width=3)   
-        l2.grid(column=2, row=2)
+        self.l = tk.Label(fig, width=3, bg="light grey")
+        self.l.grid(column=1, row=2)
+         
+        self.l2.grid(column=2, row=2)
     
     elif(figura == 1):
         vfigura ="Triangulo"
@@ -64,17 +67,15 @@ def figurasGeometricas(self, figura):
         imgfig = tk.Label(fig, image = self.img_Triangulo, padx=50, pady=50)  
         imgfig.grid(column=0, row=2)
         
-        l = tk.Label(fig, width=3, bg="light grey")
-        l.grid(column=1, row=2)
+        self.l = tk.Label(fig, width=3, bg="light grey")
+        self.l.grid(column=1, row=2)
         
-        l1 = tk.Entry(fig, font = ("Arial", 20, "bold"), width=3)   
-        l1.grid(column=2, row=2)
+        self.l1.grid(column=2, row=2)
         
-        l = tk.Label(fig, width=3, bg="light grey")
-        l.grid(column=1, row=3)
+        self.l = tk.Label(fig, width=3, bg="light grey")
+        self.l.grid(column=1, row=3)
         
-        l2 = tk.Entry(fig, font = ("Arial", 20, "bold"), width=3)   
-        l2.grid(column=0, row=4)
+        self.l2.grid(column=0, row=4)
     
     elif(figura == 2):
         vfigura ="Rectangulo"
@@ -82,20 +83,18 @@ def figurasGeometricas(self, figura):
         vperimetro = "Perimetro = L1 + L2 + L3 + L4"
         
         #configuracion de la figura
-        l1 = tk.Entry(fig, font = ("Arial", 20, "bold"), width=3)
-        l1.grid(column=0, row=0)
+        self.l1.grid(column=0, row=0)
         
-        l = tk.Label(fig, height=2, bg="light grey")
-        l.grid(column=0, row=1)
+        self.l = tk.Label(fig, height=2, bg="light grey")
+        self.l.grid(column=0, row=1)
         
         imgfig = tk.Label(fig, image = self.img_Rectangulo, padx=50, pady=50)  
         imgfig.grid(column=0, row=2)
         
-        l = tk.Label(fig, width=3, bg="light grey")
-        l.grid(column=1, row=2)
-        
-        l2 = tk.Entry(fig, font = ("Arial", 20, "bold"), width=3)   
-        l2.grid(column=2, row=2)
+        self.l = tk.Label(fig, width=3, bg="light grey")
+        self.l.grid(column=1, row=2)
+          
+        self.l2.grid(column=2, row=2)
     
     elif(figura == 3):
         vfigura ="Circulo"
@@ -103,20 +102,18 @@ def figurasGeometricas(self, figura):
         vperimetro = "Perimetro = pi * d "
         
         #configuracion de la figura
-        l1 = tk.Entry(fig, font = ("Arial", 20, "bold"), width=3)
-        l1.grid(column=0, row=0)
+        self.l1.grid(column=0, row=0)
         
-        l = tk.Label(fig, height=2, bg="light grey")
-        l.grid(column=0, row=1)
+        self.l = tk.Label(fig, height=2, bg="light grey")
+        self.l.grid(column=0, row=1)
         
         imgfig = tk.Label(fig, image = self.img_Circulo, padx=50, pady=50)  
         imgfig.grid(column=0, row=2)
         
-        l = tk.Label(fig, width=3, bg="light grey")
-        l.grid(column=1, row=2)
+        self.l = tk.Label(fig, width=3, bg="light grey")
+        self.l.grid(column=1, row=2)
         
-        l2 = tk.Entry(fig, font = ("Arial", 20, "bold"), width=3)   
-        l2.grid(column=2, row=2)
+        self.l2.grid(column=2, row=2)
     
     elif(figura == 4):
         vfigura ="Trapecio"
@@ -124,25 +121,23 @@ def figurasGeometricas(self, figura):
         vperimetro = "Perimetro = B + b + h + h"
         
         #configuracion de la figura
-        l1 = tk.Entry(fig, font = ("Arial", 20, "bold"), width=3)
-        l1.grid(column=0, row=0)
+        self.l1.grid(column=0, row=0)
         
-        l = tk.Label(fig, height=1, bg="light grey")
-        l.grid(column=0, row=1)
+        self.l = tk.Label(fig, height=1, bg="light grey")
+        self.l.grid(column=0, row=1)
         
         imgfig = tk.Label(fig, image = self.img_Trapecio, padx=50, pady=50)  
         imgfig.grid(column=0, row=2)
         
-        l = tk.Label(fig, width=3, bg="light grey")
-        l.grid(column=1, row=2)
+        self.l = tk.Label(fig, width=3, bg="light grey")
+        self.l.grid(column=1, row=2)
         
-        l2 = tk.Entry(fig, font = ("Arial", 20, "bold"), width=3)   
-        l2.grid(column=2, row=2)
+        self.l2.grid(column=2, row=2)
         
-        l = tk.Label(fig, width=1, bg="light grey")
-        l.grid(column=1, row=3)
+        self.l = tk.Label(fig, width=1, bg="light grey")
+        self.l.grid(column=1, row=3)
           
-        l3.grid(column=0, row=4)
+        self.l3.grid(column=0, row=4)
 
     #texto de la figura 
     texfig = tk.Label(dat, text=vfigura, font = ("Arial", 20, "bold"), bg="light grey")
@@ -181,5 +176,5 @@ def figurasGeometricas(self, figura):
     #borde del boton 1
     borderlineal = tk.LabelFrame(fig, bd = 6, bg = "DodgerBlue2")
     borderlineal.grid(column=0, row=6)
-    calcular = tk.Button(borderlineal, text="Calcular", width=15, font = ("Arial", 15, "bold"), command=lambda: [llamado(self, figura, l1.get(), l2.get(), l3.get())] )
+    calcular = tk.Button(borderlineal, text="Calcular", width=15, font = ("Arial", 15, "bold"), command=lambda: [llamado(self, figura)] )
     calcular.pack()
