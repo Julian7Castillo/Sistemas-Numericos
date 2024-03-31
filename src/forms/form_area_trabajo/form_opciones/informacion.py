@@ -17,11 +17,11 @@ class InfoDesign(tk.Toplevel):
         
     def construirWidget(self):
         """Creacion y ubicacion de objetos en la ventana"""
-        self.labelVersion = tk.Label(self, text = "Versión : 1.0")
+        self.labelVersion = tk.Label(self, text = "Versión : 1.3")
         self.labelVersion.config(fg="#000000", font=("Roboto", 15), pady=10, width = 20)
         self.labelVersion.pack()
         
-        self.labelVersion = tk.Label(self, text = "Fecha de versión : 9 de Febrero del 2024")
+        self.labelVersion = tk.Label(self, text = "Fecha de versión : 31 de Marzo del 2024")
         self.labelVersion.config(fg="#000000", font=("Roboto", 15), pady=10, width = 40)
         self.labelVersion.pack()
         

@@ -1,12 +1,32 @@
 import tkinter as tk
 from src.forms.form_area_trabajo.form_figuras.logic.areaPerimetro import CalcularResultado
+from src.forms.form_area_trabajo.form_figuras.advertencia import advertencia
 
 def llamado(self, fig):
-    l1 = int(self.l1.get())
-    l2 = int(self.l2.get())
-    #l3 = int(self.l3.get())
-    area, perimetro = CalcularResultado(self, fig, l1, l2)
     
+    area, perimetro = 0, 0 
+    
+    try:
+        if (self.l2.get() == ""):
+            l2 = 0
+        else:
+            l2 = int(self.l2.get())
+            
+        l1 = int(self.l1.get())
+        #l3 = int(self.l3.get())
+           
+        #VALIDACIONES DE FIGURAs 
+        if(l1 == 0 or l2 == 0):
+            advertencia()
+        else:
+            if(fig == 0 and l1 != l2):
+                advertencia()
+            else:   
+                area, perimetro = CalcularResultado(fig, l1, l2)
+    except:
+        advertencia()
+        print("error")
+      
     self.r1.configure(state = 'normal')
     self.r1.delete(0,"end")
     self.r1.insert(0,area)
@@ -34,86 +54,111 @@ def figurasGeometricas(self, figura):
     vperimetro = ""
     
     #Creacion predetermionada
-    self.l1 = tk.Entry(fig, font = ("Arial", 20, "bold"), width=3)
-    self.l2 = tk.Entry(fig, font = ("Arial", 20, "bold"), width=3)
-    self.l3 = tk.Entry(fig, font = ("Arial", 20, "bold"), width=3) 
+    fram1 = tk.Frame(fig, bg="light grey")
+    labl1 = tk.Label(fram1, text="L1 =", font = ("Arial", 15, "bold"), bg="light grey")
+    self.l1 = tk.Entry(fram1, font = ("Arial", 15, "bold"), width=3)
+    
+    fram2 = tk.Frame(fig, bg="light grey")
+    labl2= tk.Label(fram2, text="L2 =", font = ("Arial", 15, "bold"), bg="light grey")
+    self.l2 = tk.Entry(fram2, font = ("Arial", 15, "bold"), width=3)
+    
+    #self.l3 = tk.Entry(fig, font = ("Arial", 20, "bold"), width=3) 
     
     if(figura == 0):
 
         vfigura ="Cuadrado"
-        varea = "Area = L1 * L2"
-        vperimetro = "Perimetro = L1 + L2 + L3 + L4"
+        varea = "Area = Laldo 1 X Lado 1"
+        vperimetro = "Perimetro = L1 + L2 + L1 + L2"
          
         #ajustes de ubicacion de la figura
-        self.l1.grid(column=0, row=0)
+        fram1.grid(column=0, row=0)
+        labl1.pack(side=tk.LEFT)
+        self.l1.pack(side=tk.RIGHT)
         
-        self.l = tk.Label(fig, height=2, bg="light grey")
+        self.l = tk.Label(fig, height=1, bg="light grey")
         self.l.grid(column=0, row=1)
         
-        imgfig = tk.Label(fig, image = self.img_Cuadrado, padx=50, pady=50)  
+        imgfig = tk.Label(fig, image = self.img_Cuadrado, padx=10, pady=10)  
         imgfig.grid(column=0, row=2)  
         
-        self.l = tk.Label(fig, width=3, bg="light grey")
+        self.l = tk.Label(fig, width=0, bg="light grey")
         self.l.grid(column=1, row=2)
-         
-        self.l2.grid(column=2, row=2)
     
     elif(figura == 1):
         vfigura ="Triangulo"
-        varea = "Area = (B * A) / 2"
+        varea = "Area = (Base X Altura) / 2"
         vperimetro = "Perimetro = L1 + L2 + L3 "
         
         #configuracion de la figura
-        imgfig = tk.Label(fig, image = self.img_Triangulo, padx=50, pady=50)  
+        imgfig = tk.Label(fig, image = self.img_Triangulo)  
         imgfig.grid(column=0, row=2)
         
-        self.l = tk.Label(fig, width=3, bg="light grey")
+        self.l = tk.Label(fig, width=0, bg="light grey")
         self.l.grid(column=1, row=2)
         
-        self.l1.grid(column=2, row=2)
+        fram1.grid(column=2, row=2)
+        labl1.config(text="B =")
+        labl1.pack(side=tk.LEFT)
+        self.l1.pack(side=tk.RIGHT)
         
-        self.l = tk.Label(fig, width=3, bg="light grey")
+        self.l = tk.Label(fig, width=0, bg="light grey")
         self.l.grid(column=1, row=3)
         
-        self.l2.grid(column=0, row=4)
+        fram2.grid(column=0, row=4)
+        labl2.config(text="A =")
+        labl2.pack(side=tk.LEFT)
+        self.l2.pack(side=tk.RIGHT)
     
     elif(figura == 2):
         vfigura ="Rectangulo"
-        varea = "Area = B * A"
-        vperimetro = "Perimetro = L1 + L2 + L3 + L4"
+        varea = "Area = Base X Altura"
+        vperimetro = "Perimetro = Base + Altura + Base + Altura"
         
         #configuracion de la figura
-        self.l1.grid(column=0, row=0)
+        fram1.grid(column=0, row=0)
+        labl1.config(text="B =")
+        labl1.pack(side=tk.LEFT)
+        self.l1.pack(side=tk.RIGHT)
         
-        self.l = tk.Label(fig, height=2, bg="light grey")
+        self.l = tk.Label(fig, height=1, bg="light grey")
         self.l.grid(column=0, row=1)
         
-        imgfig = tk.Label(fig, image = self.img_Rectangulo, padx=50, pady=50)  
+        imgfig = tk.Label(fig, image = self.img_Rectangulo, padx=10, pady=10)  
         imgfig.grid(column=0, row=2)
         
-        self.l = tk.Label(fig, width=3, bg="light grey")
+        self.l = tk.Label(fig, width=0, bg="light grey")
         self.l.grid(column=1, row=2)
-          
-        self.l2.grid(column=2, row=2)
+        
+        fram2.grid(column=2, row=2)
+        labl1.config(text="A =")
+        labl2.pack(side=tk.LEFT)
+        self.l2.pack(side=tk.RIGHT)
     
+    #no esta activo en este momento
     elif(figura == 3):
         vfigura ="Circulo"
-        varea = "Area = pi * r**2 "
-        vperimetro = "Perimetro = pi * d "
+        varea = "Area = pi X Radio**2 "
+        vperimetro = "Perimetro = pi X Diametro "
         
         #configuracion de la figura
-        self.l1.grid(column=0, row=0)
+        fram1.grid(column=0, row=0)
+        labl1.config(text="D =")
+        labl1.pack(side=tk.LEFT)
+        self.l1.pack(side=tk.RIGHT)
         
-        self.l = tk.Label(fig, height=2, bg="light grey")
+        self.l = tk.Label(fig, height=1, bg="light grey")
         self.l.grid(column=0, row=1)
         
-        imgfig = tk.Label(fig, image = self.img_Circulo, padx=50, pady=50)  
+        imgfig = tk.Label(fig, image = self.img_Circulo, padx=10, pady=10)  
         imgfig.grid(column=0, row=2)
         
-        self.l = tk.Label(fig, width=3, bg="light grey")
+        self.l = tk.Label(fig, width=0, bg="light grey")
         self.l.grid(column=1, row=2)
         
-        self.l2.grid(column=2, row=2)
+        fram2.grid(column=2, row=2)
+        labl2.config(text="R =")
+        labl2.pack(side=tk.LEFT)
+        self.l2.pack(side=tk.RIGHT)
     
     elif(figura == 4):
         vfigura ="Trapecio"
@@ -126,7 +171,7 @@ def figurasGeometricas(self, figura):
         self.l = tk.Label(fig, height=1, bg="light grey")
         self.l.grid(column=0, row=1)
         
-        imgfig = tk.Label(fig, image = self.img_Trapecio, padx=50, pady=50)  
+        imgfig = tk.Label(fig, image = self.img_Trapecio, padx=10, pady=10)  
         imgfig.grid(column=0, row=2)
         
         self.l = tk.Label(fig, width=3, bg="light grey")
@@ -159,8 +204,9 @@ def figurasGeometricas(self, figura):
     
     texfig = tk.Label(ar, text="Area:", font = ("Arial", 20, "bold"), bg="light grey")
     texfig.pack(side=tk.LEFT, fill="both", expand=True)
+    
     self.r1 =tk.Entry(ar, font = ("Arial", 20, "bold"), state="readonly")
-    self.r1.pack(side=tk.RIGHT)
+    self.r1.pack(side=tk.LEFT)
     
     per = tk.Frame(dat, bg="light grey")
     per.pack(side=tk.TOP, fill="both", expand=True)

@@ -2,10 +2,10 @@ import math
 
 PI = 3.1416
 
-def CalcularResultado(self, fig, l1, l2):
+def CalcularResultado(fig, l1, l2):
     if(fig == 0):
-        perimetro = l1+l2+l1+l2
-        area = l1*l2 
+        perimetro = l1+l1+l1+l1
+        area = l1*l1 
         
     elif(fig == 1):
         perimetro = l1+l2+l1
