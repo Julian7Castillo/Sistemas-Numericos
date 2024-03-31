@@ -10,7 +10,6 @@ def CalcularResultado(fig, l1, l2):
     elif(fig == 1):
         perimetro = l1+l2+l1
         h = math.sqrt((l2/2)**2+l1**2)
-        print(h)
         area =  (h*l2)/2
         
     elif(fig == 2):

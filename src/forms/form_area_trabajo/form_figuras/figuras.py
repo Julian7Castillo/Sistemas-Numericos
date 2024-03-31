@@ -15,17 +15,18 @@ def llamado(self, fig):
         l1 = int(self.l1.get())
         #l3 = int(self.l3.get())
            
-        #VALIDACIONES DE FIGURAs 
-        if(l1 == 0 or l2 == 0):
-            advertencia()
+        #VALIDACIONES DE FIGURAs
+        if(l1 != 0 and l2 != 0):
+            area, perimetro = CalcularResultado(fig, l1, l2)
+            
+        elif(fig == 0 and l1 != 0):
+            area, perimetro = CalcularResultado(fig, l1, l2)
+            
         else:
-            if(fig == 0 and l1 != l2):
-                advertencia()
-            else:   
-                area, perimetro = CalcularResultado(fig, l1, l2)
+            advertencia() 
+                   
     except:
         advertencia()
-        print("error")
       
     self.r1.configure(state = 'normal')
     self.r1.delete(0,"end")
