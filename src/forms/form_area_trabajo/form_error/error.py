@@ -9,14 +9,18 @@ def error(self):
     error_Absoluto = abs(valor_exacto - valor_aproximado)
     error_Relativo = abs(error_Absoluto / valor_exacto)
     
+    #procesdo de redondeado
+    redo_error_Absoluto = round(error_Absoluto, 8)
+    redo_error_Relativo = round(error_Relativo, 8)
+    
     self.errAb.configure(state = 'normal')
     self.errAb.delete(0,"end")
-    self.errAb.insert(0,error_Absoluto)
+    self.errAb.insert(0,redo_error_Absoluto)
     self.errAb.configure(state = 'disabled')
     
     self.errRl.configure(state = 'normal')
     self.errRl.delete(0,"end")
-    self.errRl.insert(0,error_Relativo)
+    self.errRl.insert(0,redo_error_Relativo)
     self.errRl.configure(state = 'disabled')
 
 def errorabcoluto(self):
