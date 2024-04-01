@@ -3,8 +3,16 @@ from tkinter import Scrollbar
 import tkinter as tk
 import src.util.utilidades as utl
 from src.forms.form_barra_superior.formBarraSuperior import barraSuperior
-from src.forms.form_menu.menus import menuop, menufun
-from src.forms.form_area_trabajo.areaTrabajo import *
+from src.forms.form_menu.menus import menuop, menufun, menufiguras
+from src.forms.form_area_trabajo.form_bienvenida_construccion.bienvenida import bienvenida, panel_Constuccion
+from src.forms.form_area_trabajo.form_calculadora.calculadora import CalculadoraPanel
+from src.forms.form_area_trabajo.form_Fracciones.fracciones import Fracciones
+from src.forms.form_area_trabajo.form_redondeo.redondeo import redondeoTruncamiento
+from src.forms.form_area_trabajo.form_error.error import errorabcoluto
+from src.forms.form_area_trabajo.form_convercion.conversion import conversionNumerica
+from src.forms.form_area_trabajo.form_figuras.figuras import figurasGeometricas
+from src.forms.form_area_trabajo.form_funciones.funciones import general, semilla
+from src.forms.form_area_trabajo.form_opciones.opciones import Opciones
 
 class FormPrincipal(tk.Tk):
     
@@ -13,7 +21,15 @@ class FormPrincipal(tk.Tk):
         super().__init__()
         
         #imagenes necesaria precargadas
-        self.img_sitio_construccion = utl.leer_imagen("./Sistemas-Numericos/src/img/sitio_construccion.png", (400, 400))
+        self.img_sitio_construccion = utl.leer_imagen("./src/img/sitio_construccion.png", (200, 200))
+        self.img_Cuadrado = utl.leer_imagen("./src/img/Cuadrado.png", (200, 200))
+        self.img_Triangulo = utl.leer_imagen("./src/img/Triangulo.png", (200, 200))
+        self.img_Rectangulo = utl.leer_imagen("./src/img/Rectangulo.png", (200, 200))
+        self.img_Circulo = utl.leer_imagen("./src/img/Circulo.png", (200, 200))
+        self.img_Trapecio = utl.leer_imagen("./src/img/Trapecio.png", (200, 200))
+        
+        #variable de tema
+        self.vteme = "Claro"
         
         #funciones necesaria para la visualización de todo
         self.configuracion()
@@ -58,29 +74,8 @@ class FormPrincipal(tk.Tk):
         self.canvmenu.create_window((0,0), window = self.menu, anchor="nw")
         
         #CReacion del panel del area de trabajo
-        self.AreaTrabajo = tk.Frame(self, bg="light grey")
+        self.AreaTrabajo = tk.Frame(self, bg="light grey", width=780, padx=10, pady=10)
         self.AreaTrabajo.pack(side=tk.RIGHT, fill="both", expand=True)
-        
-        #codigo ocmentado del scrop para el area de trabajo 
-        #Creacion de canvas trabajo
-        #self.canvtrab = tk.Canvas(self.AreaTrabajo, bg="grey")
-        #self.canvtrab.place(relx=0.001, rely=0.001, relwidth=0.99, relheight=0.999)
-        #self.canvtrab.pack(side="left", fill="both", expand = 1)
-        
-        #Declaracion de la barra de scrolldel area de trabajo
-        #self.scrolltrab = Scrollbar(self.AreaTrabajo, orient="vertical", command=self.canvtrab.yview)
-        #self.scrolltrab.place(relx=0.98, rely=0.001, relwidth=0.02, relheight=0.999)
-        #self.scrolltrab.pack(side="right", fill="y")
-        
-        #configuracion de canvas del area de trabajo
-        #self.canvtrab.configure(yscrollcommand=self.scrolltrab.set)
-        #self.canvtrab.bind('<Configure>', lambda e: self.canvtrab.configure(scrollregion = self.canvtrab.bbox("all")))
-        
-        #crear otro frame en el canvas del area de trabajo
-        #self.trab = tk.Frame(self.canvtrab)
-        
-        #Agregar el nuevo frame al canvas del area de trabajo
-        #self.canvtrab.create_window((0,0), window = self.trab, anchor="nw")
 
     def toggle_panel(self):
         """Alterar la visiblidad del menu lateral si esta visible lo retira en la visibilidad y si no se encuentra visible, lo ajusta al lado derecho en el eje y para pocisionarlo """
@@ -88,6 +83,10 @@ class FormPrincipal(tk.Tk):
             self.barra_menu.pack_forget()
         else:
             self.barra_menu.pack(side=tk.LEFT, fill="y")
+    
+    def cambienvenida(self):
+        self.limpiarPanel(self.AreaTrabajo)
+        bienvenida(self)
     
     def config_boton_menu(self, borde, boton, text, font_awesome, ancho_menu, alto_menu, comando):
         """Configuracion de los bordes y los botones del menu lateral"""
@@ -110,12 +109,32 @@ class FormPrincipal(tk.Tk):
     def fra(self):
         """Funcion para limpiar el panel y llamar la funcion asignada en el arera de trabajo desde el script de area de trabajo"""
         self.limpiarPanel(self.AreaTrabajo)
-        panel_Constuccion(self)
+        Fracciones(self)
     
     def figGeo(self):
         """Funcion para limpiar el panel y llamar la funcion asignada en el arera de trabajo desde el script de area de trabajo"""
+        self.limpiarPanel(self.menu)
+        menufiguras(self)
+        
+    def cuad(self):
         self.limpiarPanel(self.AreaTrabajo)
-        panel_Constuccion(self)
+        figurasGeometricas(self,0)
+    
+    def triang(self):
+        self.limpiarPanel(self.AreaTrabajo)
+        figurasGeometricas(self,1)
+    
+    def rectan(self):
+        self.limpiarPanel(self.AreaTrabajo)
+        figurasGeometricas(self,2)
+    
+    def circ(self):
+        self.limpiarPanel(self.AreaTrabajo)
+        figurasGeometricas(self,3)
+    
+    def trapecio(self):
+        self.limpiarPanel(self.AreaTrabajo)
+        figurasGeometricas(self,4)
     
     def red(self):
         """Funcion para limpiar el panel y llamar la funcion asignada en el arera de trabajo desde el script de area de trabajo"""
@@ -170,17 +189,12 @@ class FormPrincipal(tk.Tk):
     def connum(self):
         """Funcion para limpiar el panel y llamar la funcion asignada en el arera de trabajo desde el script de area de trabajo"""
         self.limpiarPanel(self.AreaTrabajo)
-        panel_Constuccion(self)
+        conversionNumerica(self)
         
     def opci(self):
         """Funcion para limpiar el panel y llamar la funcion asignada en el arera de trabajo desde el script de area de trabajo"""
         self.limpiarPanel(self.AreaTrabajo)
-        panel_Constuccion(self)
-        
-    def infor(self):
-        """Funcion para limpiar el panel y llamar la funcion asignada en el arera de trabajo desde el script de area de trabajo"""
-        self.limpiarPanel(self.AreaTrabajo)
-        panel_Constuccion(self)
+        Opciones(self)
         
 # if __name__ == "__main__":
 #     main()
